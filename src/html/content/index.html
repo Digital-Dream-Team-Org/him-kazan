@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/components.min.css" />
+    <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/main.min.css" />
     <link rel="stylesheet" href="css/media.min.css" />
   </head>
@@ -22,15 +23,2299 @@
     <!-- contents of html partials will be injected here -->
     <!-- endinject -->
     <main class="main-content">
-      <div class="container">
-        <p>Content</p>
-        <img src="assets/default.jpg" alt="pic" />
-      </div>
+      <section
+        class="section section-hero"
+        style="background-image: url(assets/hero-image.png)"
+      >
+        <div class="container">
+          <div class="section-hero__content">
+            <div class="row">
+              <div class="col-md-6">
+                <p class="section-hero__subtitle">АКВАХИМ</p>
+                <h1 class="section-hero__title">
+                  Промышленная химия оптом от надёжной компании
+                </h1>
+                <div>
+                  <a class="section-hero__link" href="#">
+                    <span>Узнать подробнее</span>
+                    <i class="icon-arrow"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-hero__download-btn-wrap">
+          <div class="container">
+            <a href="#" class="section-hero__download-btn">
+              <span class="section-hero__download-btn-text">
+                Скачать презентацию (.pdf)
+              </span>
+              <span class="section-hero__download-btn-icon-wrap">
+                <i class="icon-download"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="section section--spaced">
+        <div class="container">
+          <div class="catalog-table-wrap">
+            <div class="catalog-table">
+              <div class="catalog-table__header">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="catalog-table__title">Каталог</div>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#" class="catalog-table__download-btn">
+                      <i class="icon-download"></i>
+                      <span>Скачать прайс-лист (.xls)</span>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#" class="catalog-table__link">
+                      <span>В каталог</span>
+                      <i class="icon-arrow"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog-table__body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-1"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Хлорсодержащие препараты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (15)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-1"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-2"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Активный оксид алюминия
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (15)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-2"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-3"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Гидроантрацит
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (15)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-3"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-4"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Реагенты для котельной и ТЭЦ
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (92)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-4"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-5"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Ионообменные смолы
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (55)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-5"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-6"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Техническая химия
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (88)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-6"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-7"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Активированные угли
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (88)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-7"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-8"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Гликоли
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (87)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-8"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-9"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Пеногасители
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (6)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-9"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-10"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Силикагель
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (6)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-10"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-11"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Сульфат алюминия
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (22)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-11"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-12"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Глицерин
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (23)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-12"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-13"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Полиоксихлорид алюминия
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (22)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-13"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-14"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Щелочь / Натр едкий
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (9)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-14"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-15"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Реагенты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (7)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-15"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-16"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Флокулянты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (54)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-16"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-17"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Комплексонаты и ингибиторы
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (3)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-17"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-18"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Кварцевый песок
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (3)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-18"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-19"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Цеолиты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (64)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-19"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-20"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Кислоты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (2)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-20"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-21"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Сорбенты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (4)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-21"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-22"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Мешки для обезвоживания
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (54)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-22"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-23"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Хлорное железо
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (44)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-23"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-24"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Антигололедные реагенты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (54)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-24"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-25"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Растворители
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (22)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-25"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-26"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Минеральные удобрения
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (64)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-26"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-27"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Термочехлы
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (5)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-27"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-28"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Неонолы и синатолы
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (2)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-28"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-29"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Биопрепараты
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (12)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-29"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-30"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Химические реактивы
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (2)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-30"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-31"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Теплоносители
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (11)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-31"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-32"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Фильтрующий материал
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (2)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-32"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-33"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Химия для бассейна
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (21)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-33"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-34"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Дезинфицирующие средства
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (21)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-34"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-35"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Шунгит
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (8)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-35"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-36"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Тара
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (5)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-36"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-37"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Зимний инвентарь
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (8)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-37"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-38"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Пищевые добавки
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (3)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-38"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="catalog-table__collapse">
+                      <button
+                        class="catalog-table__collapse-btn"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse-39"
+                      >
+                        <span class="catalog-table__collapse-btn-content">
+                          <span class="catalog-table__collapse-btn-text">
+                            Укрывные материалы
+                          </span>
+                          <span class="catalog-table__collapse-btn-quantity">
+                            (3)
+                          </span>
+                        </span>
+                        <i class="icon-chevron"></i>
+                      </button>
+                      <div
+                        class="catalog-table__collapse-body collapse"
+                        id="collapse-39"
+                      >
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 1</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 2</a>
+                        </div>
+                        <div class="catalog-table__collapse-body-item">
+                          <a href="#">Test link 3</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-scope">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <h2>Сферы применения</h2>
+              <p class="p3 text-black-lighter">
+                Компания «АкваХим» занимается продажей раздичных видов
+                химического сырья. Наша продукция будет полезна в следующих
+                отраслях.
+              </p>
+            </div>
+          </div>
+          <div class="scrolling-container-wrap">
+            <div class="swiper-container scrolling-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-28.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">Птицефабрики</div>
+                          <div class="scope-card__quantity">
+                            <span>45 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-29.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">ТЭЦ</div>
+                          <div class="scope-card__quantity">
+                            <span>23 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-35.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">ЖКХ</div>
+                          <div class="scope-card__quantity">
+                            <span>23 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-30.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">Котельные</div>
+                          <div class="scope-card__quantity">
+                            <span>15 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-36.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">
+                            Ветеринарные аптеки
+                          </div>
+                          <div class="scope-card__quantity">
+                            <span>44 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-32.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">Воинские части</div>
+                          <div class="scope-card__quantity">
+                            <span>28 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-33.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">
+                            Нефтеперерабатывающая промышленность
+                          </div>
+                          <div class="scope-card__quantity">
+                            <span>11 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-33.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">
+                            Нефтеперерабатывающая промышленность
+                          </div>
+                          <div class="scope-card__quantity">
+                            <span>11 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="scope-card-wrap">
+                    <a href="#">
+                      <div class="scope-card">
+                        <div class="scope-card__image-container">
+                          <div class="scope-card__image-wrap">
+                            <img
+                              src="assets/image-34.png"
+                              alt="pic"
+                              class="scope-card__image"
+                            />
+                          </div>
+                        </div>
+                        <div class="scope-card__content">
+                          <div class="scope-card__title">Водоканалы</div>
+                          <div class="scope-card__quantity">
+                            <span>45 продуктов</span>
+                            <i class="icon-arrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-scrollbar"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section--spaced">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <h2>Компания АКВАХИМ</h2>
+                <div>
+                  <p>
+                    На сегодняшний день мы — один из крупнейших в России
+                    поставщиков технической химии для водоподготовки и
+                    водоочистки, очистки промышленных стоков, парового
+                    конденсата и прочих процессов на предприятиях
+                    теплоэнергетического и животноводческого комплексах,
+                    предприятий легкой, тяжелой и пищевой промышленности,
+                    сельского хозяйства, медицины, строительства, а также
+                    предприятий ЖКХ и коммунального хозяйства.
+                  </p>
+                  <p>
+                    Сегодня в ассортименте нашей компании более 1300 позиций,
+                    среди которых материалы собственного производства.
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="icon-element">
+                    <div class="icon-element__icon-wrap">
+                      <i class="icon-documents"></i>
+                    </div>
+                    <div class="icon-element__title">17 лет на рынке</div>
+                    <div class="icon-element__content">
+                      АКВАХИМ работет с 2004 года, предоставляя услуги
+                      наивысшего качества
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="icon-element">
+                    <div class="icon-element__icon-wrap">
+                      <i class="icon-sale"></i>
+                    </div>
+                    <div class="icon-element__title">
+                      Квалифицированный персонал
+                    </div>
+                    <div class="icon-element__content">
+                      В нашем офисе работают 35 квалифицированных менеджеров
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="icon-element">
+                    <div class="icon-element__icon-wrap">
+                      <i class="icon-certificate"></i>
+                    </div>
+                    <div class="icon-element__title">Низкие цены</div>
+                    <div class="icon-element__content">
+                      Работаем напрмяую с крупнейшими заводами России и Европы
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="icon-element">
+                    <div class="icon-element__icon-wrap">
+                      <i class="icon-delivery"></i>
+                    </div>
+                    <div class="icon-element__title">
+                      Доставка во все регионы
+                    </div>
+                    <div class="icon-element__content">
+                      Доставка 5 ТК, ж\д и попутными машинами. Грузовые
+                      автомобили в собственности
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+              <div class="section__header justify-content-end mb-3">
+                <div class="section__header-arrow-wrap">
+                  <a href="#" class="section__header-arrow">
+                    <span>Все новости</span>
+                    <i class="icon-arrow"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="news-card-wrap">
+                <a href="#">
+                  <div class="news-card">
+                    <div class="news-card__image-wrap">
+                      <img
+                        src="assets/image-23.png"
+                        alt="pic"
+                        class="news-card__image"
+                      />
+                    </div>
+                    <div class="news-card__content">
+                      <div class="news-card__header">
+                        В Самаре дезинфицируют метро хлорамином Б для защиты от
+                        Covid-19
+                      </div>
+                      <div class="news-card__footer">
+                        <div class="news-card__date">24.08.2020</div>
+                        <div class="news-card__link-wrap">
+                          <i class="icon-arrow"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="news-card-wrap">
+                <a href="#">
+                  <div class="news-card">
+                    <div class="news-card__image-wrap">
+                      <img
+                        src="assets/image-19.png"
+                        alt="pic"
+                        class="news-card__image"
+                      />
+                    </div>
+                    <div class="news-card__content">
+                      <div class="news-card__header">
+                        В Курской области из-за АЧС сожгли 500 тыс. тонн
+                        свинины. Самым эффективным способом борьбы с чумой
+                        назвали «хлорку»
+                      </div>
+                      <div class="news-card__footer">
+                        <div class="news-card__date">21.08.2020</div>
+                        <div class="news-card__link-wrap">
+                          <i class="icon-arrow"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="news-card-wrap">
+                <a href="#">
+                  <div class="news-card">
+                    <div class="news-card__image-wrap">
+                      <img
+                        src="assets/image-24.png"
+                        alt="pic"
+                        class="news-card__image"
+                      />
+                    </div>
+                    <div class="news-card__content">
+                      <div class="news-card__header">
+                        Эксперты прогнозируют вторую волну коронавирусной
+                        инфекции в ближайшее время
+                      </div>
+                      <div class="news-card__footer">
+                        <div class="news-card__date">21.08.2020</div>
+                        <div class="news-card__link-wrap">
+                          <i class="icon-arrow"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="section section--spaced section-stars"
+        style="background-image: url(assets/image-1111.png)"
+      >
+        <div class="container">
+          <div class="section-stars__content">
+            <h2>Нам доверяют звёзды</h2>
+            <div class="scrolling-container-lined-wrap">
+              <div class="swiper-container scrolling-container-lined">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="star-card-wrap">
+                      <div class="star-card">
+                        <div class="star-card__image-wrap">
+                          <img
+                            src="assets/image-14.png"
+                            alt="pic"
+                            class="star-card__image"
+                          />
+                        </div>
+                        <div class="star-card__footer">
+                          Андрей Григорьев-Апполонов
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="star-card-wrap">
+                      <div class="star-card">
+                        <div class="star-card__image-wrap">
+                          <img
+                            src="assets/image-15.png"
+                            alt="pic"
+                            class="star-card__image"
+                          />
+                        </div>
+                        <div class="star-card__footer">
+                          Андрей Григорьев-Апполонов
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="star-card-wrap">
+                      <div class="star-card">
+                        <div class="star-card__image-wrap">
+                          <img
+                            src="assets/image-16.png"
+                            alt="pic"
+                            class="star-card__image"
+                          />
+                        </div>
+                        <div class="star-card__footer">
+                          Андрей Григорьев-Апполонов
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="star-card-wrap">
+                      <div class="star-card">
+                        <div class="star-card__image-wrap">
+                          <img
+                            src="assets/image-17.png"
+                            alt="pic"
+                            class="star-card__image"
+                          />
+                        </div>
+                        <div class="star-card__footer">Ирина Салтыкова</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="star-card-wrap">
+                      <div class="star-card">
+                        <div class="star-card__image-wrap">
+                          <img
+                            src="assets/image-18.png"
+                            alt="pic"
+                            class="star-card__image"
+                          />
+                        </div>
+                        <div class="star-card__footer">Ирина Салтыкова</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="section"
+        style="
+          background-image: url(assets/logo-bg.png);
+          background-repeat: no-repeat;
+          background-size: auto;
+          background-position: left bottom;
+          background-origin: content-box;
+          padding-bottom: 140px;
+        "
+      >
+        <section class="section section--spaced">
+          <div class="container">
+            <h2>Благодарности</h2>
+            <div class="row">
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <div class="vert-card">
+                    <div class="vert-card__image-wrap">
+                      <img
+                        src="assets/image-9.png"
+                        alt="pic"
+                        class="vert-card__image"
+                      />
+                    </div>
+                    <div class="vert-card__content">
+                      <div class="vert-card__title">
+                        Благодарственное письмо от ООО «РАТЭК»
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <div class="vert-card">
+                    <div class="vert-card__image-wrap">
+                      <img
+                        src="assets/image-10.png"
+                        alt="pic"
+                        class="vert-card__image"
+                      />
+                    </div>
+                    <div class="vert-card__content">
+                      <div class="vert-card__title">
+                        Благотворительный фонд «Соверши Добро»
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <div class="vert-card">
+                    <div class="vert-card__image-wrap">
+                      <img
+                        src="assets/image-11.png"
+                        alt="pic"
+                        class="vert-card__image"
+                      />
+                    </div>
+                    <div class="vert-card__content">
+                      <div class="vert-card__title">ООО «ПЭК»</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <a href="#">
+                    <div class="vert-card vert-card--btn">
+                      <div class="vert-card__content">
+                        <div class="vert-card__title">Все благодарности</div>
+                        <div class="vert-card__subtitle">
+                          <span>Перейти в раздел</span>
+                          <i class="icon-arrow"></i>
+                        </div>
+                      </div>
+                      <div class="vert-card__btn-wrap">
+                        <div class="vert-card__btn">
+                          <div class="i-tripple-chevron">
+                            <i class="icon-chevron-right"></i>
+                            <i class="icon-chevron-right"></i>
+                            <i class="icon-chevron-right"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="section__header">
+              <h2>Финансовая информация</h2>
+              <div class="section__header-arrow-wrap">
+                <a href="#" class="section__header-arrow">
+                  <span>Посмотреть отчёты</span>
+                  <i class="icon-arrow"></i>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>
+                  Согласно <strong>пункту 2 статьи 5 307-ФЗ</strong> ООО
+                  «АКВАХИМ» организует <strong>ежегодный аудит</strong>
+                  <strong>бухгалтерской отчетности</strong> в полном
+                  соответствии с
+                  <strong>Международными стандартами</strong> (МСА). Данная
+                  процедура позволяет обеспечить прозрачность и достоверность
+                  финансовой информации компании для принятия решений нашими
+                  партнерами, потенциальными клиентами и государственными
+                  органами.
+                </p>
+                <p>
+                  В качестве аудитора в 2017—2018 гг. была выбрана независимая
+                  организация <strong>ООО «АКК «Аудэкс»</strong>, в 2019 г. –
+                  независимая организация
+                  <strong>ООО «Казанский аудитор»</strong>. ООО «АКК «Аудэкс» и
+                  ООО «Казанский аудитор» провели аудит годовой бухгалтерской
+                  (финансовой) отчетности.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  Она состоит из следующих документов: бухгалтерского баланса,
+                  отчета о финансовых результатах, приложений и пояснений к
+                  бухгалтерскому балансу и отчету о финансовых результатах,
+                  включая отчет об изменениях капитала, о движении денежных
+                  средств и расчет стоимости чистых активов.
+                </p>
+                <p>
+                  <a href="#">Прилагаемые документы</a> достоверно отражают во
+                  всех существенных отношениях финансовое положение<strong>
+                    ООО «АКВАХИМ»</strong
+                  >, финансовые результаты деятельности и движение денежных
+                  средств за отчетный период в соответствии с правилами
+                  составления бухгалтерской (финансовой) отчетности,
+                  установленными в Российской Федерации. Скачать наши отчёты вы
+                  можете <a href="#">здесь</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section
+        class="section-partners"
+        style="background-image: url(assets/image-171.png)"
+      >
+        <div class="container">
+          <div class="section section--spaced section-partners__content">
+            <h2>Наши партнёры</h2>
+            <div class="partners-swiper-wrap">
+              <!-- Swiper -->
+              <div class="swiper-container partners-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-5.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-6.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-7.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-8.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-5.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-6.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-7.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="partner-card-wrap">
+                      <div class="partner-card">
+                        <img
+                          src="assets/image-8.png"
+                          alt="partner"
+                          class="partner-card__image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Add Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="section"
+        style="
+          background-image: url(assets/aquachem-bg.png);
+          background-repeat: no-repeat;
+          background-size: 95% auto;
+          background-position: center;
+        "
+      >
+        <section class="section section--spaced">
+          <div class="container">
+            <h2>Награды и дипломы</h2>
+            <div class="row">
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <div class="vert-card">
+                    <div class="vert-card__image-wrap">
+                      <img
+                        src="assets/image-26.png"
+                        alt="pic"
+                        class="vert-card__image"
+                      />
+                    </div>
+                    <div class="vert-card__content">
+                      <div class="vert-card__title">
+                        Диплом учатника выставки «Экватэк»
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <div class="vert-card">
+                    <div class="vert-card__image-wrap">
+                      <img
+                        src="assets/image-27.png"
+                        alt="pic"
+                        class="vert-card__image"
+                      />
+                    </div>
+                    <div class="vert-card__content">
+                      <div class="vert-card__title">
+                        Железная сотня поставщиков
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <div class="vert-card">
+                    <div class="vert-card__image-wrap">
+                      <img
+                        src="assets/image-26.png"
+                        alt="pic"
+                        class="vert-card__image"
+                      />
+                    </div>
+                    <div class="vert-card__content">
+                      <div class="vert-card__title">
+                        Диплом учатника выставки «Экватэк»
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="vert-card-wrap">
+                  <a href="#">
+                    <div class="vert-card vert-card--btn">
+                      <div class="vert-card__content">
+                        <div class="vert-card__title">
+                          Все награды и дипломы
+                        </div>
+                        <div class="vert-card__subtitle">
+                          <span>Перейти в раздел</span>
+                          <i class="icon-arrow"></i>
+                        </div>
+                      </div>
+                      <div class="vert-card__btn-wrap">
+                        <div class="vert-card__btn">
+                          <div class="i-tripple-chevron">
+                            <i class="icon-chevron-right"></i>
+                            <i class="icon-chevron-right"></i>
+                            <i class="icon-chevron-right"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section--spaced pt-0">
+          <div class="container">
+            <h2>Прямой эфир</h2>
+            <div class="player-tabs-container">
+              <div class="player-tabs">
+                <div class="player-tabs__item active" data-id="1">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <!--Put iframe here-->
+                    <iframe
+                      src="https://www.youtube.com/embed/L7OLY4HCctQ"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="player-tabs__item" data-id="2">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <!--Put iframe here-->
+                    <iframe
+                      src="https://www.youtube.com/embed/K4TOrB7at0Y"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="player-tabs__controller">
+                <button class="player-tabs__controller-btn active" data-id="1">
+                  Офис
+                </button>
+                <button class="player-tabs__controller-btn" data-id="2">
+                  Склад
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
     </main>
     <!-- inject:footer:html -->
     <!-- contents of html partials will be injected here -->
     <!-- endinject -->
     <script src="js/components.min.js"></script>
+    <script src="libs/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.min.js"></script>
   </body>
 </html>

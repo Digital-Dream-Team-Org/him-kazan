@@ -1,0 +1,16 @@
+
+.icon-location:before { content: '\e800'; } /* '' */
+.icon-burger:before { content: '\e801'; } /* '' */
+.icon-search:before { content: '\e802'; } /* '' */
+.icon-clock:before { content: '\e803'; } /* '' */
+.icon-mail:before { content: '\e804'; } /* '' */
+.icon-phone:before { content: '\e805'; } /* '' */
+.icon-download:before { content: '\e806'; } /* '' */
+.icon-arrow:before { content: '\e807'; } /* '' */
+.icon-chevron:before { content: '\e808'; } /* '' */
+.icon-documents:before { content: '\e809'; } /* '' */
+.icon-sale:before { content: '\e80a'; } /* '' */
+.icon-certificate:before { content: '\e80b'; } /* '' */
+.icon-cross:before { content: '\e80c'; } /* '' */
+.icon-delivery:before { content: '\e80d'; } /* '' */
+.icon-chevron-right:before { content: '\e80e'; } /* '' */

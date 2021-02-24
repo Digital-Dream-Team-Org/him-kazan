@@ -1,7 +1,223 @@
 (function ($) {
   // Document ready
   $(function () {
-    console.log("ready");
-    $(".main-content .container").prepend("<p>JS works!</p>");
+    $(".scrolling-container").each(function () {
+      const scrollbar = $(this)
+        .closest(".scrolling-container-wrap")
+        .find(".swiper-scrollbar")[0];
+
+      const slidesLength = $(this).find(".swiper-slide").length;
+
+      let swiperConfig = {
+        freeMode: true,
+        spaceBetween: 12,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: scrollbar,
+          hide: false,
+          draggable: true,
+          snapOnRelease: false,
+        },
+      };
+
+      if (slidesLength >= 5) {
+        swiperConfig = {
+          ...swiperConfig,
+          slidesPerColumn: 2,
+          slidesPerColumnFill: "row",
+        };
+      } else {
+        swiperConfig = {
+          ...swiperConfig,
+        };
+      }
+
+      new Swiper($(this)[0], swiperConfig);
+    });
+    $(".scrolling-container-lined").each(function () {
+      const scrollbar = $(this)
+        .closest(".scrolling-container-lined-wrap")
+        .find(".swiper-scrollbar")[0];
+
+      new Swiper($(this)[0], {
+        freeMode: true,
+        spaceBetween: 20,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: scrollbar,
+          hide: false,
+          draggable: true,
+          snapOnRelease: false,
+        },
+      });
+    });
+    $(".partners-swiper").each(function () {
+      const parent = $(this).closest(".partners-swiper-wrap");
+      const arrowPrev = parent.find(".swiper-button-prev")[0];
+      const arrowNext = parent.find(".swiper-button-next")[0];
+
+      new Swiper($(this)[0], {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: arrowNext,
+          prevEl: arrowPrev,
+        },
+        breakpoints: {
+          576: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+        },
+      });
+    });
+
+    // Player tabs
+    $(".player-tabs__controller-btn").on("click", function () {
+      const id = $(this).data("id");
+      if (!id) {
+        console.error("Data id attribute not provided!");
+        return;
+      }
+      $(this)
+        .closest(".player-tabs-container")
+        .find(".player-tabs__controller-btn")
+        .removeClass("active");
+      $(this).addClass("active");
+
+      $(this)
+        .closest(".player-tabs-container")
+        .find(".player-tabs__item")
+        .removeClass("active");
+      $(this)
+        .closest(".player-tabs-container")
+        .find(".player-tabs__item")
+        .each(function () {
+          const tabId = $(this).data("id");
+          // Destroy and rebuild all iframes to stop videos
+          $(this)
+            .find("iframe")
+            .each(function () {
+              const src = $(this).attr("src");
+              $(this).attr("src", "");
+              setTimeout(() => {
+                $(this).attr("src", src);
+              }, 0);
+            });
+          if (id === tabId) {
+            $(this).addClass("active");
+          }
+        });
+    });
+
+    // Toggle mobile sliderbar
+    $(".toggle-mobile-slidebar").on("click", function () {
+      $("#slidebarContainer").addClass("active");
+      $("body").addClass("overflow-hidden");
+
+      $("#slidebarContainer").css({
+        transition: 0,
+        transform: "translateX(-300px)",
+      });
+      setTimeout(() => {
+        $("#slidebarContainer").css({
+          transition: "400ms",
+          transform: "translateX(0)",
+        });
+      }, 0);
+    });
+    $(".close-mobile-slidebar").on("click", function (e) {
+      closeSlidebar();
+    });
+    $(".main-header__mobile-slidebar-wrap").on("click", function (e) {
+      if (e.target !== e.currentTarget) return;
+
+      closeSlidebar();
+    });
+    function closeSlidebar() {
+      $("#slidebarContainer").css({
+        transition: "400ms",
+        transform: "translateX(-300px)",
+      });
+
+      setTimeout(() => {
+        $("#slidebarContainer").removeClass("active");
+        $("body").removeClass("overflow-hidden");
+      }, 400);
+    }
+
+    // Toggle catalog menu
+    $(".toggle-catalog-menu").on("click", function () {
+      if (!$(".main-header__catalog-menu").hasClass("active")) {
+        // Remove body overflow
+        $("body").addClass("overflow-hidden");
+
+        // Set header to fixed
+        $(".main-header").addClass("catalog-is-open");
+        const headerHeight = $(".main-header").height();
+
+        // Set catalog menu to fixed and set position
+        $(".main-header__catalog-menu")
+          .addClass("active")
+          .css({
+            height: `calc(100% - ${headerHeight}px)`,
+            top: headerHeight,
+          });
+
+        // Switch burger icon
+        $(".main-header__catalog-btn-icon")
+          .removeClass("icon-burger")
+          .addClass("icon-cross");
+      } else {
+        // Return overflow
+        $("body").removeClass("overflow-hidden");
+
+        // Remove header fixed class
+        $(".main-header").removeClass("catalog-is-open");
+
+        // Remove catalog menu fixed class and reset position
+        $(".main-header__catalog-menu").removeClass("active").css({
+          height: "",
+          top: "",
+        });
+
+        // Switch burger icon back
+        $(".main-header__catalog-btn-icon")
+          .removeClass("icon-cross")
+          .addClass("icon-burger");
+      }
+    });
+    // Filter catalog menu by letters
+    $(".filter-catalog-menu").on("click", function () {
+      const dataValue = $(this).data("menu-value");
+      if (!dataValue) {
+        console.error("No data-menu-value attribute provided!");
+        return;
+      }
+      if (!$(this).hasClass("active")) {
+        $(".filter-catalog-menu").removeClass("active");
+        $(this).addClass("active");
+
+        // Return all sections
+        $(".catalog-menu-section").each(function () {
+          $(this).parent().removeClass("d-none");
+        });
+        // Hide selected sections
+        $(".catalog-menu-section").each(function () {
+          const dataSectionValue = $(this).data("menu-value");
+          if (dataSectionValue !== dataValue) {
+            $(this).parent().addClass("d-none");
+          }
+        });
+      } else {
+        // Remove filters if clicked on active
+        $(".filter-catalog-menu").removeClass("active");
+        $(".catalog-menu-section").each(function () {
+          $(this).parent().removeClass("d-none");
+        });
+      }
+    });
   });
 })(jQuery);
