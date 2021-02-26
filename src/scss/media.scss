@@ -301,14 +301,32 @@
   }
 
   .catalog-table {
+    &__header {
+      padding: 26px 20px;
+      padding-bottom: 20px;
+    }
+    &__title {
+      font-size: 28px;
+      line-height: 44px;
+    }
+
     &__download-btn {
       text-align: left;
       justify-content: flex-start;
       margin-bottom: 20px;
+      font-size: 12px;
+      line-height: 24px;
     }
     &__link {
       text-align: left;
       justify-content: flex-start;
+      font-size: 12px;
+      line-height: 24px;
+    }
+
+    &__body {
+      padding: 25px 20px;
+      padding-bottom: 30px;
     }
   }
 

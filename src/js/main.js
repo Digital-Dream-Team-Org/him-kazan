@@ -1,6 +1,36 @@
 (function ($) {
   // Document ready
   $(function () {
+    // Open catalog dropdown
+    $(".catalog-table__collapse-btn").on("click", function () {
+      $(".catalog-table__collapse").removeClass("active");
+      const parent = $(this).closest(".catalog-table__collapse");
+      parent.addClass("active");
+
+      const content = parent
+        .find(".catalog-table__collapse-btn-content")
+        .html();
+      parent.find(".catalog-table__collapse-body-header").html(content);
+
+      parent
+        .find(".catalog-table__collapse-body-wrap")
+        .append(
+          `<button class="catalog-table__collapse-close-btn"><i class="icon-cross"></i></button>`,
+        );
+    });
+    // Close catalog dropdown on button click
+    $(document).on("click", ".catalog-table__collapse-close-btn", function () {
+      const parent = $(this).closest(".catalog-table__collapse");
+      parent.removeClass("active");
+    });
+    // Close catalog dropdown on outside click
+    $("body").on("click", function (e) {
+      const hasParent = $(e.target).closest(".catalog-table__collapse");
+      if (!hasParent.length) {
+        $(".catalog-table__collapse").removeClass("active");
+      }
+    });
+
     $(".scrolling-container").each(function () {
       const scrollbar = $(this)
         .closest(".scrolling-container-wrap")
