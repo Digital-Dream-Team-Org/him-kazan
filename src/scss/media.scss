@@ -470,6 +470,17 @@
       min-height: 48px;
     }
   }
+
+  .scrolling-container {
+    .swiper-scrollbar {
+      width: 97%;
+    }
+  }
+  .scrolling-container-lined {
+    .swiper-scrollbar {
+      width: 97%;
+    }
+  }
 }
 @media (max-width: 350px) {
   h1,

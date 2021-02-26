@@ -48,6 +48,13 @@
           draggable: true,
           snapOnRelease: false,
         },
+        on: {
+          afterInit: (e) => {
+            $(e.$el).css("padding-right", "15%");
+            e.update();
+            e.scrollbar.updateSize();
+          },
+        },
       };
 
       if (slidesLength >= 5) {
@@ -78,6 +85,13 @@
           hide: false,
           draggable: true,
           snapOnRelease: false,
+        },
+        on: {
+          afterInit: (e) => {
+            $(e.$el).css("padding-right", "15%");
+            e.update();
+            e.scrollbar.updateSize();
+          },
         },
       });
     });
