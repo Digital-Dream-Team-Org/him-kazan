@@ -862,17 +862,45 @@ a {
       padding: 0;
       margin: 0;
       text-align: left;
-      width: 100%;
+      // width: 100%;
       &-content {
+        display: block;
         margin-right: 7px;
+
+        position: relative;
+        &::after {
+          content: "\e808";
+          font-family: "fontello";
+          font-style: normal;
+          font-weight: 400;
+          display: inline-block;
+          text-decoration: inherit;
+          width: 1em;
+          text-align: center;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1em;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+
+          position: absolute;
+          right: -20px;
+          top: 8px;
+          font-size: 14px;
+          color: #b0b0b0;
+        }
       }
       &-quantity {
         color: #128ad6;
+      }
+      &-text {
+        overflow-wrap: anywhere;
       }
 
       position: relative;
       padding-right: 18px;
       i {
+        display: none;
         position: absolute;
         right: 4px;
         top: 0;
@@ -951,6 +979,18 @@ a {
 
     left: 0;
     width: 85%;
+    background: none;
+    &::before {
+      content: "";
+      height: 2px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      position: absolute;
+      background: #b0b0b0;
+      border-radius: 6px;
+    }
   }
   .swiper-scrollbar-drag {
     background: #128ad6;
@@ -991,6 +1031,18 @@ a {
 
     left: 0;
     width: 85%;
+    background: none;
+    &::before {
+      content: "";
+      height: 2px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      position: absolute;
+      background: #b0b0b0;
+      border-radius: 6px;
+    }
   }
   .swiper-scrollbar-drag {
     background: #128ad6;
