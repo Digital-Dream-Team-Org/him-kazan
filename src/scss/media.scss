@@ -311,6 +311,7 @@
     }
 
     &__download-btn {
+      margin-left: 0;
       text-align: left;
       justify-content: flex-start;
       margin-bottom: 20px;
@@ -327,6 +328,22 @@
     &__body {
       padding: 25px 20px;
       padding-bottom: 30px;
+
+      .col-md-4 {
+        &:nth-child(3n - 1) {
+          .catalog-table__collapse {
+            margin-left: 0;
+          }
+        }
+        &:nth-child(3n) {
+          .catalog-table__collapse {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    &__collapse {
+      max-width: none;
     }
   }
 
