@@ -31,6 +31,7 @@
       }
     });
 
+    // Scrolling slider
     $(".scrolling-container").each(function () {
       const scrollbar = $(this)
         .closest(".scrolling-container-wrap")
@@ -118,6 +119,11 @@
       });
     });
 
+    // Youtube player
+    if ($(".player-tabs").length) {
+      loadPlayer();
+    }
+
     // Player tabs
     $(".player-tabs__controller-btn").on("click", function () {
       const id = $(this).data("id");
@@ -135,26 +141,113 @@
         .closest(".player-tabs-container")
         .find(".player-tabs__item")
         .removeClass("active");
+
       $(this)
         .closest(".player-tabs-container")
         .find(".player-tabs__item")
         .each(function () {
           const tabId = $(this).data("id");
-          // Destroy and rebuild all iframes to stop videos
+          // Destroy all iframes
           $(this)
             .find("iframe")
             .each(function () {
-              const src = $(this).attr("src");
               $(this).attr("src", "");
-              setTimeout(() => {
-                $(this).attr("src", src);
-              }, 0);
             });
+          // Set active class
           if (id === tabId) {
             $(this).addClass("active");
           }
         });
+      // Load player for new active tab
+      setTimeout(() => {
+        loadPlayer(), 100;
+      });
     });
+
+    // Load player src into active tab depending on current time
+    function loadPlayer() {
+      const allowedOffset = [
+        "-12:00",
+        "-11:00",
+        "-10:00",
+        "-09:30",
+        "-09:00",
+        "-08:00",
+        "-07:00",
+        "-06:00",
+        "-05:00",
+        "-04:00",
+        "-03:30",
+        "-03:00",
+        "-02:00",
+        "-01:00",
+        "+00:00",
+        "+01:00",
+        "+02:00",
+        "+03:00",
+        "+03:30",
+        "+04:00",
+        "+04:30",
+        "+05:00",
+        "+05:30",
+        "+05:45",
+        "+06:00",
+        "+06:30",
+        "+07:00",
+        "+08:00",
+        "+08:45",
+        "+09:00",
+        "+09:30",
+        "+10:00",
+        "+10:30",
+        "+11:00",
+        "+12:00",
+        "+12:45",
+        "+13:00",
+        "+14:00",
+      ];
+
+      $(".player-tabs__item.active").each(function () {
+        let offset = $(this)
+          .find('input[name="iframe_source_time_offset"]')
+          .val();
+        if (!allowedOffset.includes(offset)) {
+          offset = "+00:00";
+        }
+
+        const m_date = moment().utcOffset(offset);
+
+        const m_morning = moment().utcOffset(offset).set({
+          hour: 6,
+          minute: 0,
+          second: 0,
+        });
+        const m_day = moment().utcOffset(offset).set({
+          hour: 12,
+          minute: 0,
+          second: 0,
+        });
+        const m_evening = moment().utcOffset(offset).set({
+          hour: 18,
+          minute: 0,
+          second: 0,
+        });
+
+        if (m_date.isBetween(m_morning, m_day, undefined, "[]")) {
+          // Morning
+          const src = $(this).find('input[name="iframe_source_morning"]').val();
+          $(this).find(".player-tabs__item-iframe").attr("src", src);
+        } else if (m_date.isBetween(m_day, m_evening, undefined, "[]")) {
+          // Day
+          const src = $(this).find('input[name="iframe_source_day"]').val();
+          $(this).find(".player-tabs__item-iframe").attr("src", src);
+        } else {
+          // night / Fallback
+          const src = $(this).find('input[name="iframe_source_night"]').val();
+          $(this).find(".player-tabs__item-iframe").attr("src", src);
+        }
+      });
+    }
 
     // Toggle mobile sliderbar
     $(".toggle-mobile-slidebar").on("click", function () {

@@ -14,6 +14,7 @@ body {
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(89.75deg, #fbfbfd 0.4%, #eef1f8 99.96%);
   color: #1b1b1b;
+  padding-top: 252px; // Fixed header height
 }
 .main-content {
   flex: 1 0 auto;
@@ -68,6 +69,14 @@ a {
 }
 
 .main-header {
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
   &.catalog-is-open {
     position: fixed;
     top: 0;
@@ -336,8 +345,10 @@ a {
     line-height: 24px;
     text-align: center;
     color: #128ad6;
-    padding: 6px;
+    padding: 4px;
     text-transform: uppercase;
+    min-width: 36px;
+    min-height: 36px;
 
     margin-bottom: 12px;
     &:not(:last-child) {
@@ -790,7 +801,7 @@ a {
     color: #ffffff;
   }
   &__download-btn {
-    margin-left: -30px;
+    margin-left: -75px;
 
     display: block;
     text-align: center;
@@ -866,7 +877,7 @@ a {
     position: relative;
     margin-bottom: 15px;
 
-    max-width: 330px;
+    // max-width: 330px;
     // margin-left: auto;
     // margin-right: auto;
 
@@ -905,7 +916,8 @@ a {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
 
-          position: absolute;
+          position: static;
+          display: inline-block;
           right: -20px;
           top: 8px;
           font-size: 14px;
@@ -1000,7 +1012,7 @@ a {
     border-radius: 12px;
 
     left: 0;
-    width: 85%;
+    width: 100%;
     background: none;
     &::before {
       content: "";
@@ -1052,7 +1064,7 @@ a {
     border-radius: 12px;
 
     left: 0;
-    width: 85%;
+    width: 100%;
     background: none;
     &::before {
       content: "";
@@ -1376,6 +1388,11 @@ a {
 
     iframe {
       border-radius: 20px;
+
+      &.disabled {
+        user-select: none;
+        pointer-events: none;
+      }
     }
   }
   &__controller {
@@ -1420,6 +1437,7 @@ a {
     }
   }
 }
+
 
 .news-card-wrap {
   margin-bottom: 20px;
