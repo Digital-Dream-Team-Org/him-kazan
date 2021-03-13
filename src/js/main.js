@@ -1,6 +1,33 @@
 (function ($) {
   // Document ready
   $(function () {
+    // Popups
+    $(".open-contact-popup").on("click", function (e) {
+      e.preventDefault();
+      $("body").addClass("overflow-hidden");
+      $("#contactFormPopup").addClass("active");
+
+      const product = $(this).data("product");
+
+      if (product) {
+        $("#contactFormPopup").find(".overlay-form-product-name").val(product);
+      }
+    });
+
+    // Close overlay on outside click
+    $(".overlay-cdk").on("click", function (e) {
+      if (e.target !== e.currentTarget) return;
+
+      $(".overlay-cdk").removeClass("active");
+      $("body").removeClass("overflow-hidden");
+    });
+
+    // Close overlay on button click
+    $(".overlay-cdk__close-btn").on("click", function (e) {
+      $(".overlay-cdk").removeClass("active");
+      $("body").removeClass("overflow-hidden");
+    });
+
     // Open catalog dropdown
     $(".catalog-table__collapse-btn").on("click", function () {
       $(".catalog-table__collapse").removeClass("active");
@@ -166,6 +193,7 @@
 
     // Load player src into active tab depending on current time
     function loadPlayer() {
+      return;
       const allowedOffset = [
         "-12:00",
         "-11:00",
@@ -356,5 +384,45 @@
         });
       }
     });
+
+    $(window).on("scroll", function () {
+      stickHeader();
+    });
+
+    stickHeader();
+
+    var startHeader = null;
+    var totalHeader = null;
+    function stickHeader() {
+      const el = $(".main-header")[0];
+
+      if (!el) {
+        return;
+      }
+
+      if (startHeader === null) {
+        startHeader = window.pageYOffset + el.getBoundingClientRect().top;
+      }
+      if (totalHeader === null) {
+        totalHeader = window.pageYOffset + el.getBoundingClientRect().bottom;
+      }
+
+      if (
+        $(window).scrollTop() > startHeader &&
+        !$(".main-header").hasClass("main-header--fixed")
+      ) {
+        $(".main-header").addClass("main-header--fixed");
+        $("body").css("padding-top", $(".main-header").height());
+      }
+
+      if (
+        $(".main-header").hasClass("main-header--fixed") &&
+        totalHeader !== null &&
+        $(window).scrollTop() <= startHeader
+      ) {
+        $(".main-header").removeClass("main-header--fixed");
+        $("body").css("padding-top", 0);
+      }
+    }
   });
 })(jQuery);

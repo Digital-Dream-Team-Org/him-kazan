@@ -23,6 +23,11 @@
   }
 }
 @media (max-width: 1200px) {
+  body {
+    &.header-fixed {
+      padding-top: 280px; // Fixed header height
+    }
+  }
   .main-header {
     // Nav START
     &__menu {
@@ -58,7 +63,9 @@
 }
 @media (max-width: 992px) {
   body {
-    padding-top: 175px; // Fixed header height
+    &.header-fixed {
+      padding-top: 175px; // Fixed header height
+    }
   }
   .main-header {
     // Bar START
@@ -372,6 +379,16 @@
     line-height: 44px;
     margin-bottom: 20px;
   }
+  h2 {
+    font-size: 28px;
+    line-height: 44px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 18px;
+    line-height: 44px;
+    margin-bottom: 20px;
+  }
   .section-hero {
     &__title {
       font-weight: 600;
@@ -500,11 +517,24 @@
       width: 97%;
     }
   }
+
+  .overlay-cdk {
+    &.contact-popup-overlay {
+      .overlay-cdk__content-wrap {
+        padding: 30px 15px;
+      }
+    }
+  }
 }
 @media (max-width: 350px) {
-  h1,
-  h2 {
+  h1 {
     font-size: 24px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 18px;
   }
   .section-hero {
     &__title {

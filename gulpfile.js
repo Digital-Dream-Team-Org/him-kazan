@@ -120,28 +120,32 @@ function buildStyles() {
 // Build html, inject templates and move to dist
 function buildHtml() {
   // Returns stream
-  return gulp
-    .src(paths.html.contentSrc)
-    .pipe(plumber())
-    .pipe(
-      inject(gulp.src([paths.html.includeHeaderSrc]), {
-        starttag: "<!-- inject:header:{{ext}} -->",
-        transform: function (filePath, file) {
-          // return file contents as string
-          return file.contents.toString("utf8");
-        },
-      }),
-    )
-    .pipe(
-      inject(gulp.src([paths.html.includeFooterSrc]), {
-        starttag: "<!-- inject:footer:{{ext}} -->",
-        transform: function (filePath, file) {
-          // return file contents as string
-          return file.contents.toString("utf8");
-        },
-      }),
-    )
-    .pipe(gulp.dest(paths.html.dest));
+  return (
+    gulp
+      .src(paths.html.contentSrc)
+      .pipe(plumber())
+      .pipe(
+        inject(gulp.src([paths.html.includeHeaderSrc]), {
+          starttag: "<!-- inject:header:{{ext}} -->",
+          transform: function (filePath, file) {
+            // return file contents as string
+            return file.contents.toString("utf8");
+          },
+        }),
+      )
+      .pipe(
+        inject(gulp.src([paths.html.includeFooterSrc]), {
+          starttag: "<!-- inject:footer:{{ext}} -->",
+          transform: function (filePath, file) {
+            // return file contents as string
+            return file.contents.toString("utf8");
+          },
+        }),
+      )
+      .pipe(gulp.dest(paths.html.dest))
+      // Inject css if browserSync running
+      .pipe(browserSync.stream())
+  );
 }
 
 // Build, concat, minimize and move to dist third party libraries
@@ -241,20 +245,19 @@ function bSync() {
 function watchFiles() {
   // Inject styles on change, styles injection handled in a styles task
   gulp.watch(paths.styles.src, buildStyles);
+  // Build html and reload, it's possible to inject but not recommended
+  gulp.watch(
+    [
+      paths.html.contentSrc,
+      paths.html.includeFooterSrc,
+      paths.html.includeHeaderSrc,
+    ],
+    buildHtml,
+  );
+
   // Build scripts and reload on change, it's possible to inject but not recommended
   gulp
     .watch(paths.scripts.src, gulp.series(buildScripts))
-    .on("change", browserSync.reload);
-  // Build html and reload, it's possible to inject but not recommended
-  gulp
-    .watch(
-      [
-        paths.html.contentSrc,
-        paths.html.includeFooterSrc,
-        paths.html.includeHeaderSrc,
-      ],
-      gulp.series(buildHtml),
-    )
     .on("change", browserSync.reload);
   // Reload on libs change
   gulp

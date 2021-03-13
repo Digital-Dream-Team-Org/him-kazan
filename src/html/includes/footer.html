@@ -138,3 +138,94 @@
     </div>
   </div>
 </footer>
+<noindex>
+  <div id="contactFormPopup" class="overlay-cdk contact-popup-overlay">
+    <div class="overlay-cdk__content-wrap">
+      <button class="overlay-cdk__close-btn">
+        <i class="icon-x"></i>
+      </button>
+      <div class="overlay-cdk__title">Заказать</div>
+      <form class="overlay-cdk__contact-form" action="/" method="POST">
+        <div class="form-input-wrap disabled">
+          <label for="overlay_product_1">Наименование</label>
+          <input
+            id="overlay_product_1"
+            class="form-input overlay-form-product-name"
+            name="product"
+            type="text"
+            placeholder="Название товара"
+            value="test product"
+            disabled
+            required
+          />
+        </div>
+        <div class="form-input-wrap">
+          <label for="overlay_name_1">Имя</label>
+          <input
+            id="overlay_name_1"
+            class="form-input"
+            name="name"
+            type="text"
+            placeholder="Ваше имя"
+            required
+          />
+        </div>
+        <div class="form-input-wrap">
+          <label for="overlay_tel_1">Телефон</label>
+          <input
+            id="overlay_tel_1"
+            class="form-input"
+            name="phone"
+            type="tel"
+            placeholder="+7 (___) ___-__-__"
+            required
+          />
+        </div>
+        <div class="form-input-wrap">
+          <label for="overlay_email_1">Email</label>
+          <input
+            id="overlay_email_1"
+            class="form-input"
+            name="email"
+            type="email"
+            placeholder="example@email.com"
+            required
+          />
+        </div>
+        <div class="form-input-wrap">
+          <label for="overlay_message_1">Комментарий</label>
+          <textarea
+            id="overlay_message_1"
+            class="form-input"
+            name="message"
+            placeholder="Здесь можете указать объйм реквизиты , город доставки  и тд"
+            cols="30"
+            rows="9"
+          ></textarea>
+        </div>
+        <div class="form-checkbox-wrap">
+          <input
+            type="checkbox"
+            id="overlay_checkbox_1"
+            name="terms_agreed"
+            class="custom-control-input"
+            value="type_pickup"
+            checked
+            required
+          />
+          <label class="custom-control-label" for="overlay_checkbox_1">
+            <span>
+              Нажимая на кнопку «Отправить заявку», вы соглашаетесь с
+              <a href="#">Политикой конфеденциальности</a>
+            </span>
+          </label>
+        </div>
+        <div class="form-submit-wrap">
+          <button class="form-submit-btn" type="submit">
+            Отправить заявку
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</noindex>
