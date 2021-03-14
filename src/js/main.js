@@ -1,6 +1,52 @@
 (function ($) {
   // Document ready
   $(function () {
+    // Floating manager label
+
+    // REMOVE ON PROD
+    // $(".floating-manager-wrap").addClass("active");
+
+    $(".floating-manager__label-wrap").on("click", function () {
+      const parent = $(this).closest(".floating-manager-wrap");
+      parent.toggleClass("active");
+    });
+    $(".floating-manager__close-btn").on("click", function () {
+      const parent = $(this).closest(".floating-manager-wrap");
+      parent.removeClass("active");
+    });
+
+    // Product page gallery
+    $(".product-page-gallery").each(function () {
+      const thumbs = $(this).find(".gallery-thumbs")[0];
+      const gallery = $(this).find(".gallery-top")[0];
+
+      const thumbsArrowPrev = $(this)
+        .find(".gallery-thumbs-wrap")
+        .find(".swiper-button-prev")[0];
+      const thumbsArrowNext = $(this)
+        .find(".gallery-thumbs-wrap")
+        .find(".swiper-button-next")[0];
+
+      let galleryThumbs = new Swiper(thumbs, {
+        spaceBetween: 16,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+      });
+
+      let galleryTop = new Swiper(gallery, {
+        spaceBetween: 10,
+        thumbs: {
+          swiper: galleryThumbs,
+        },
+        navigation: {
+          prevEl: thumbsArrowPrev,
+          nextEl: thumbsArrowNext,
+        },
+      });
+    });
+
     // Popups
     $(".open-contact-popup").on("click", function (e) {
       e.preventDefault();
@@ -34,9 +80,7 @@
       const parent = $(this).closest(".catalog-table__collapse");
       parent.addClass("active");
 
-      const content = parent
-        .find(".catalog-table__collapse-btn-content")
-        .html();
+      const content = parent.find(".catalog-table__collapse-btn-text").html();
       parent.find(".catalog-table__collapse-body-header").html(content);
 
       parent
@@ -56,6 +100,31 @@
       if (!hasParent.length) {
         $(".catalog-table__collapse").removeClass("active");
       }
+    });
+
+    // Toggle catalog page collapse
+    $(".catalog-page-collapse__btn").on("click", function (e) {
+      e.preventDefault();
+
+      const parent = $(this).closest(".catalog-page-collapse");
+
+      // $(".catalog-table__collapse").removeClass("active");
+      if (parent.hasClass("active")) {
+        parent.find(".catalog-page-collapse__body").slideUp();
+        parent.removeClass("active");
+      } else {
+        parent.find(".catalog-page-collapse__body").slideDown();
+        parent.addClass("active");
+      }
+
+      // const content = parent.find(".catalog-table__collapse-btn-text").html();
+      // parent.find(".catalog-table__collapse-body-header").html(content);
+
+      // parent
+      //   .find(".catalog-table__collapse-body-wrap")
+      //   .append(
+      //     `<button class="catalog-table__collapse-close-btn"><i class="icon-cross"></i></button>`,
+      //   );
     });
 
     // Scrolling slider
@@ -193,6 +262,7 @@
 
     // Load player src into active tab depending on current time
     function loadPlayer() {
+      // REMOVE ON PROD
       return;
       const allowedOffset = [
         "-12:00",

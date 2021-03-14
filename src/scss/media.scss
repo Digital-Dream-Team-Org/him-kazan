@@ -371,6 +371,82 @@
     padding: 10px;
     min-height: 90px;
   }
+
+  .floating-manager-wrap {
+    top: unset;
+    bottom: 60px;
+    width: 100%;
+    max-width: 300px;
+
+    transform: translateX(calc(100% - 32px));
+  }
+  .floating-manager {
+    padding: 10px 12px;
+    padding-left: calc(12px + 32px); // label width
+
+    &__close-btn {
+      top: 10px;
+      right: 10px;
+    }
+    &__label-wrap {
+      width: 32px;
+    }
+    &__label {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    &__info {
+      margin-bottom: 12px;
+      &-image-wrap {
+        margin-right: 7px;
+      }
+      &-image {
+        width: 45px;
+        height: 45px;
+      }
+    }
+    &__name {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 4px;
+    }
+    &__position {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &__contacts {
+      &-icon-wrap {
+        i {
+          font-size: 16px;
+        }
+      }
+      &-content {
+        &-item {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+
+  .product-page-info {
+    margin-bottom: 65px;
+
+    &__image-wrap {
+      max-width: none;
+    }
+
+    &__description {
+      margin-bottom: 10px;
+    }
+  }
 }
 @media (max-width: 576px) {
   h1,
@@ -409,6 +485,14 @@
         font-size: 10px;
       }
       i {
+        font-size: 14px;
+      }
+    }
+    &-download-btn {
+      margin-top: -6px;
+      font-size: 10px;
+      i {
+        margin-left: 7px;
         font-size: 14px;
       }
     }
@@ -523,6 +607,38 @@
       .overlay-cdk__content-wrap {
         padding: 30px 15px;
       }
+    }
+  }
+
+  .product-page-message {
+    align-items: flex-start;
+
+    &__content {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  .product-page-info {
+    margin-bottom: 65px;
+
+    &__col {
+      width: 100%;
+    }
+
+    &__image-wrap {
+      max-width: none;
+    }
+
+    &__description {
+      margin-bottom: 10px;
+    }
+
+    &__order-btn {
+      max-width: none;
+    }
+    &__btn {
+      max-width: none;
     }
   }
 }
