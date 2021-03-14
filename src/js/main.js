@@ -2,9 +2,7 @@
   // Document ready
   $(function () {
     // Floating manager label
-
-    // REMOVE ON PROD
-    // $(".floating-manager-wrap").addClass("active");
+    $(".floating-manager-wrap").addClass("active");
 
     $(".floating-manager__label-wrap").on("click", function () {
       const parent = $(this).closest(".floating-manager-wrap");
@@ -262,8 +260,6 @@
 
     // Load player src into active tab depending on current time
     function loadPlayer() {
-      // REMOVE ON PROD
-      return;
       const allowedOffset = [
         "-12:00",
         "-11:00",
