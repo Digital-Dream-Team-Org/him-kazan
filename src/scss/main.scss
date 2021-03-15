@@ -87,10 +87,10 @@ p {
   line-height: 28px;
 }
 
-.text-primary {
+.text-main {
   color: #128ad6;
 }
-.text-secondary {
+.text-alt {
   color: #0769a6;
 }
 .text-black-lighter {
@@ -946,7 +946,7 @@ ol.list {
     left: 0;
     height: 100%;
     width: 100%;
-    background: #010c02;
+    background: #1B1B1B;
     opacity: 0.85;
     pointer-events: none;
   }
@@ -1022,6 +1022,7 @@ ol.list {
 
     display: flex;
     align-items: center;
+    width: 100%;
 
     i {
       font-size: 18px;
@@ -1759,6 +1760,13 @@ ol.list {
     opacity: 0.85;
     border-radius: 6px;
     z-index: 1;
+
+    transition: 300ms;
+  }
+  &:hover {
+    &::before {
+      background: #128AD6;
+    }
   }
 
   &__image-wrap {
@@ -2553,6 +2561,79 @@ ol.list {
 }
 
 .table {
+  &--p3 {
+    thead {
+      tr {
+        th,
+        td {
+          font-size: 18px !important;
+          line-height: 24px !important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        th,
+        td {
+          font-size: 18px !important;
+          line-height: 24px !important;
+        }
+      }
+    }
+  }
+  &--p3-content {
+    thead {
+      tr {
+        td {
+          font-size: 18px !important;
+          line-height: 24px !important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          font-size: 18px !important;
+          line-height: 24px !important;
+        }
+      }
+    }
+  }
+  &--boldy {
+    thead {
+      tr {
+        th,
+        td {
+          font-weight: 500 !important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        th,
+        td {
+          font-weight: 500 !important;
+        }
+      }
+    }
+  }
+  &--boldy-content {
+    thead {
+      tr {
+        td {
+          font-weight: 500 !important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          font-weight: 500 !important;
+        }
+      }
+    }
+  }
+
   thead {
     background: #128ad6;
     padding: 18px 30px;
