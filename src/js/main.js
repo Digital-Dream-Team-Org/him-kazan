@@ -1,6 +1,27 @@
 (function ($) {
   // Document ready
   $(function () {
+    // Simple phone input mask
+    $(".phone-input-mask").on("keypress paste", function (evt) {
+      // ^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$
+      var theEvent = evt || window.event;
+
+      var key = null;
+      // Handle paste
+      if (theEvent.type === "paste") {
+        key = event.clipboardData.getData("text/plain");
+      } else {
+        // Handle key press
+        key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+      }
+      var regex = /([1-9() +-])/;
+      if (!regex.test(key)) {
+        theEvent.returnValue = false;
+        if (theEvent.preventDefault) theEvent.preventDefault();
+      }
+    });
+
     // Floating manager label
     $(".floating-manager-wrap").addClass("active");
 

@@ -2633,6 +2633,17 @@ ol.list {
       }
     }
   }
+  &--no-hover {
+    tbody {
+      tr {
+        transition: none;
+        &:hover {
+          transform: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+  }
 
   thead {
     background: #128ad6;
