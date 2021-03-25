@@ -56,6 +56,7 @@
 
       let galleryTop = new Swiper(gallery, {
         spaceBetween: 10,
+        autoHeight: true,
         thumbs: {
           swiper: galleryThumbs,
         },
@@ -100,7 +101,12 @@
       parent.addClass("active");
 
       const content = parent.find(".catalog-table__collapse-btn-text").html();
-      parent.find(".catalog-table__collapse-body-header").html(content);
+
+      if (parent.find(".catalog-table__collapse-body-header a").length) {
+        parent.find(".catalog-table__collapse-body-header a").html(content);
+      } else {
+        parent.find(".catalog-table__collapse-body-header").html(content);
+      }
 
       parent
         .find(".catalog-table__collapse-body-wrap")

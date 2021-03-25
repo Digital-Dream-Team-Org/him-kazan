@@ -97,6 +97,13 @@ p {
   color: #515151;
 }
 
+.bg-main {
+  background: #128ad6 !important;
+}
+.bg-alt {
+  background: #0769a6 !important;
+}
+
 a {
   text-decoration-line: underline;
   color: #0769a6;
@@ -534,6 +541,11 @@ ol.list {
       line-height: 24px;
       color: #1b1b1b;
       margin-bottom: 16px;
+
+      a {
+        text-decoration: none !important;
+        color: #1b1b1b;
+      }
     }
 
     &-list {
@@ -946,7 +958,7 @@ ol.list {
     left: 0;
     height: 100%;
     width: 100%;
-    background: #1B1B1B;
+    background: #1b1b1b;
     opacity: 0.85;
     pointer-events: none;
   }
@@ -1191,10 +1203,19 @@ ol.list {
         padding: 12px 20px;
         padding-right: 50px;
 
+        a {
+          color: #1b1b1b;
+          text-decoration: none;
+
+          transition: 200ms;
+          &:hover {
+            color: #128ad6;
+          }
+        }
+
         transition: 200ms;
         &:hover {
           color: #128ad6;
-          cursor: default;
         }
       }
       &-content {
@@ -1765,7 +1786,7 @@ ol.list {
   }
   &:hover {
     &::before {
-      background: #128AD6;
+      background: #128ad6;
     }
   }
 
@@ -2879,6 +2900,51 @@ ol.list {
       background: #128ad6;
     }
   }
+  &__btns-container {
+    a {
+      display: block;
+      border-radius: 6px;
+      background: none;
+      color: #128ad6;
+      border: 1px solid #128ad6;
+      padding: 12px 24px;
+
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+
+      text-decoration: none;
+      width: 100%;
+      max-width: 252px;
+      margin-bottom: 15px;
+
+      transition: 200ms;
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+        background: #128ad6;
+      }
+
+      &::after {
+        content: "\e806";
+        font-family: "fontello";
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        text-decoration: inherit;
+        width: 1em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-left: 5px;
+      }
+    }
+  }
+
   &__status {
     padding: 10px 16px;
     border-radius: 50px;
@@ -2913,7 +2979,8 @@ ol.list {
   margin-bottom: 20px;
 }
 .product-page-gallery {
-  height: 528px;
+  // height: 528px;
+  height: auto;
 
   .swiper-container {
     width: 100%;
@@ -2929,14 +2996,16 @@ ol.list {
   }
 
   .gallery-top {
-    height: 80%;
+    // height: 80%;
+    height: 100%;
     width: 100%;
     border-radius: 10px;
   }
 
   .gallery-thumbs-wrap {
     position: relative;
-    height: 20%;
+    // height: 20%;
+    height: 85px;
     padding: 10px 0;
   }
   .gallery-thumbs {
