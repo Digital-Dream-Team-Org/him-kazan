@@ -740,6 +740,23 @@ ol.list {
         font-size: 14px;
         line-height: 28px;
       }
+
+      &--green {
+        .main-footer__schedule-item-title {
+          color: #219653;
+        }
+        .main-footer__schedule-item-time {
+          color: #219653;
+        }
+      }
+      &--red {
+        .main-footer__schedule-item-title {
+          color: #eb5e5e;
+        }
+        .main-footer__schedule-item-time {
+          color: #eb5e5e;
+        }
+      }
     }
   }
 
@@ -2901,7 +2918,7 @@ ol.list {
     }
   }
   &__btns-container {
-    a {
+    & > a {
       display: block;
       border-radius: 6px;
       background: none;
