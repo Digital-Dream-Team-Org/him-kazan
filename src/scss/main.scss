@@ -744,17 +744,21 @@ ol.list {
       &--green {
         .main-footer__schedule-item-title {
           color: #219653;
+          font-weight: bold;
         }
         .main-footer__schedule-item-time {
           color: #219653;
+          font-weight: bold;
         }
       }
       &--red {
         .main-footer__schedule-item-title {
           color: #eb5e5e;
+          font-weight: bold;
         }
         .main-footer__schedule-item-time {
           color: #eb5e5e;
+          font-weight: bold;
         }
       }
     }
