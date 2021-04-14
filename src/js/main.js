@@ -407,46 +407,96 @@
     }
 
     // Toggle catalog menu
-    $(".toggle-catalog-menu").on("click", function () {
+    let toggleCatalogTimer = 0;
+    let toggleInterval = null;
+    $(".toggle-catalog-menu").on("mouseenter", function () {
       if (!$(".main-header__catalog-menu").hasClass("active")) {
-        // Remove body overflow
-        $("body").addClass("overflow-hidden");
+        if (!toggleInterval) {
+          toggleInterval = setInterval(() => {
+            toggleCatalogTimer += 0.1;
 
-        // Set header to fixed
-        $(".main-header").addClass("catalog-is-open");
-        const headerHeight = $(".main-header").height();
+            if (toggleCatalogTimer < 0.4) {
+              return;
+            }
 
-        // Set catalog menu to fixed and set position
-        $(".main-header__catalog-menu")
-          .addClass("active")
-          .css({
-            height: `calc(100% - ${headerHeight}px)`,
-            top: headerHeight,
-          });
+            openCatalogMenu();
 
-        // Switch burger icon
-        $(".main-header__catalog-btn-icon")
-          .removeClass("icon-burger")
-          .addClass("icon-cross");
+            if (toggleInterval) {
+              clearInterval(toggleInterval);
+              toggleInterval = null;
+            }
+            toggleCatalogTimer = 0;
+          }, 100);
+        }
+      }
+    });
+    $(".toggle-catalog-menu").on("mouseleave", function () {
+      if (!$(".main-header__catalog-menu").hasClass("active")) {
+        if (toggleInterval) {
+          clearInterval(toggleInterval);
+          toggleInterval = null;
+        }
+        toggleCatalogTimer = 0;
+      }
+    });
+
+    $(".toggle-catalog-menu").on("click", function (e) {
+      if (!$(".main-header__catalog-menu").hasClass("active")) {
+        // // Remove body overflow
+        // $("body").addClass("overflow-hidden");
+        // // Set header to fixed
+        // $(".main-header").addClass("catalog-is-open");
+        // const headerHeight = $(".main-header").height();
+        // // Set catalog menu to fixed and set position
+        // $(".main-header__catalog-menu")
+        //   .addClass("active")
+        //   .css({
+        //     height: `calc(100% - ${headerHeight}px)`,
+        //     top: headerHeight,
+        //   });
+        // // Switch burger icon
+        // $(".main-header__catalog-btn-icon")
+        //   .removeClass("icon-burger")
+        //   .addClass("icon-cross");
       } else {
+        e.preventDefault();
         // Return overflow
         $("body").removeClass("overflow-hidden");
-
         // Remove header fixed class
         $(".main-header").removeClass("catalog-is-open");
-
         // Remove catalog menu fixed class and reset position
         $(".main-header__catalog-menu").removeClass("active").css({
           height: "",
           top: "",
         });
-
         // Switch burger icon back
         $(".main-header__catalog-btn-icon")
           .removeClass("icon-cross")
           .addClass("icon-burger");
       }
     });
+    function openCatalogMenu() {
+      // Remove body overflow
+      $("body").addClass("overflow-hidden");
+
+      // Set header to fixed
+      $(".main-header").addClass("catalog-is-open");
+      const headerHeight = $(".main-header").height();
+
+      // Set catalog menu to fixed and set position
+      $(".main-header__catalog-menu")
+        .addClass("active")
+        .css({
+          height: `calc(100% - ${headerHeight}px)`,
+          top: headerHeight,
+        });
+
+      // Switch burger icon
+      $(".main-header__catalog-btn-icon")
+        .removeClass("icon-burger")
+        .addClass("icon-cross");
+    }
+
     // Filter catalog menu by letters
     $(".filter-catalog-menu").on("click", function () {
       const dataValue = $(this).data("menu-value");
@@ -506,6 +556,8 @@
       ) {
         $(".main-header").addClass("main-header--fixed");
         $("body").css("padding-top", $(".main-header").height());
+
+        $(".floating-manager-wrap").addClass("floating-manager-wrap--scrolled");
       }
 
       if (
@@ -515,6 +567,10 @@
       ) {
         $(".main-header").removeClass("main-header--fixed");
         $("body").css("padding-top", 0);
+
+        $(".floating-manager-wrap").removeClass(
+          "floating-manager-wrap--scrolled",
+        );
       }
     }
   });

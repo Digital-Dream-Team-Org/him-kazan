@@ -57,6 +57,14 @@
             <img class="main-header__logo" src="assets/logo.png" alt="logo" />
           </a>
         </div>
+        <div
+          class="main-header__catalog-btn-wrap main-header__catalog-btn-wrap--fixed"
+        >
+          <a href="#" class="main-header__catalog-btn toggle-catalog-menu">
+            <i class="main-header__catalog-btn-icon icon-burger"></i>
+            <span>Каталог</span>
+          </a>
+        </div>
         <div class="main-header__search-wrap">
           <form id="headerSearchInput" class="main-header__search" action="/">
             <div class="main-header__search-input-wrap">
@@ -72,7 +80,7 @@
           </form>
         </div>
         <div class="main-header__contacts-container">
-          <div class="main-header__contacts">
+          <div class="main-header__contacts main-header__contacts--schedule">
             <div class="main-header__contacts-desc">
               <!-- <i class="icon-clock"></i> -->
               <img src="assets/ic_clock.svg" alt="clock" />
@@ -120,15 +128,22 @@
     <div class="container">
       <nav class="main-header__nav navbar-light">
         <div class="main-header__catalog-btn-wrap">
-          <button class="main-header__catalog-btn toggle-catalog-menu">
+          <a href="#" class="main-header__catalog-btn toggle-catalog-menu">
             <i class="main-header__catalog-btn-icon icon-burger"></i>
             <span>Каталог</span>
-          </button>
+          </a>
         </div>
         <div class="main-header__menu-wrap">
           <ul class="main-header__menu">
-            <li class="main-header__menu-item">
-              <a class="main-header__menu-item-link" href="#">О компании</a>
+            <li class="main-header__menu-item dropdown">
+              <a class="main-header__menu-item-link dropdown-toggle" href="#">
+                О компании
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </li>
             <li class="main-header__menu-item">
               <a class="main-header__menu-item-link" href="#">Статьи</a>
@@ -436,7 +451,18 @@
       <div class="main-header__menu-wrap">
         <ul class="main-header__menu">
           <li class="main-header__menu-item">
-            <a class="main-header__menu-item-link" href="#">О компании</a>
+            <a
+              class="main-header__menu-item-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+            >
+              О компании
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+            </div>
           </li>
           <li class="main-header__menu-item">
             <a class="main-header__menu-item-link" href="#">Статьи</a>
