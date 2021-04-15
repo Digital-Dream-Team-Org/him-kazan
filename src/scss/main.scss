@@ -274,14 +274,21 @@ ol.list {
     .main-header__search-wrap {
       margin-right: 25px;
     }
+    .main-header__content-wrap {
+      padding-top: 18px;
+      padding-bottom: 4px;
+    }
+    .main-header__content {
+      padding: 0;
+    }
   }
 
   &.catalog-is-open {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    // position: fixed;
+    // // top: 0;
+    // left: 0;
+    // width: 100%;
+    // z-index: 1000;
   }
   // Bar START
   &__bar-wrap {
@@ -502,6 +509,16 @@ ol.list {
     transition: 200ms;
     &:hover {
       background: #0769a6;
+    }
+
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -45px;
+      height: 45px;
+      width: 100%;
+      // background: red;
     }
   }
   &__menu-wrap {
@@ -2287,6 +2304,7 @@ ol.list {
   width: 100%;
   top: 0;
   left: 0;
+  padding: 20px 15px;
   z-index: 9999;
   background: rgba(0, 0, 0, 0.4);
   overflow: auto;
@@ -2318,6 +2336,8 @@ ol.list {
       padding: 30px 62px;
 
       position: relative;
+      overflow: auto;
+      height: 100%;
     }
     .overlay-cdk__title {
       font-style: normal;

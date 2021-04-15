@@ -407,11 +407,26 @@
     }
 
     // Toggle catalog menu
+    $(".toggle-catalog-menu, .main-header__catalog-menu").on(
+      "mouseenter mouseover",
+      function () {
+        if (toggleInterval) {
+          clearInterval(toggleInterval);
+          toggleInterval = null;
+        }
+        toggleCatalogTimer = 0;
+        if (!$(".main-header__catalog-menu").hasClass("active")) {
+          openCatalogMenu();
+        }
+      },
+    );
+
     let toggleCatalogTimer = 0;
     let toggleInterval = null;
-    $(".toggle-catalog-menu").on("mouseenter", function () {
-      if (!$(".main-header__catalog-menu").hasClass("active")) {
-        if (!toggleInterval) {
+    $(".toggle-catalog-menu, .main-header__catalog-menu").on(
+      "mouseleave",
+      function () {
+        if ($(".main-header__catalog-menu").hasClass("active")) {
           toggleInterval = setInterval(() => {
             toggleCatalogTimer += 0.1;
 
@@ -419,7 +434,7 @@
               return;
             }
 
-            openCatalogMenu();
+            closeCatalogMenu();
 
             if (toggleInterval) {
               clearInterval(toggleInterval);
@@ -428,73 +443,112 @@
             toggleCatalogTimer = 0;
           }, 100);
         }
-      }
-    });
-    $(".toggle-catalog-menu").on("mouseleave", function () {
-      if (!$(".main-header__catalog-menu").hasClass("active")) {
-        if (toggleInterval) {
-          clearInterval(toggleInterval);
-          toggleInterval = null;
-        }
-        toggleCatalogTimer = 0;
-      }
-    });
+      },
+    );
 
-    $(".toggle-catalog-menu").on("click", function (e) {
-      if (!$(".main-header__catalog-menu").hasClass("active")) {
-        // // Remove body overflow
-        // $("body").addClass("overflow-hidden");
-        // // Set header to fixed
-        // $(".main-header").addClass("catalog-is-open");
-        // const headerHeight = $(".main-header").height();
-        // // Set catalog menu to fixed and set position
-        // $(".main-header__catalog-menu")
-        //   .addClass("active")
-        //   .css({
-        //     height: `calc(100% - ${headerHeight}px)`,
-        //     top: headerHeight,
-        //   });
-        // // Switch burger icon
-        // $(".main-header__catalog-btn-icon")
-        //   .removeClass("icon-burger")
-        //   .addClass("icon-cross");
-      } else {
-        e.preventDefault();
-        // Return overflow
-        $("body").removeClass("overflow-hidden");
-        // Remove header fixed class
-        $(".main-header").removeClass("catalog-is-open");
-        // Remove catalog menu fixed class and reset position
-        $(".main-header__catalog-menu").removeClass("active").css({
-          height: "",
-          top: "",
-        });
-        // Switch burger icon back
-        $(".main-header__catalog-btn-icon")
-          .removeClass("icon-cross")
-          .addClass("icon-burger");
-      }
-    });
+    // let toggleCatalogTimer = 0;
+    // let toggleInterval = null;
+    // $(".toggle-catalog-menu").on("mouseenter", function () {
+    //   if (!$(".main-header__catalog-menu").hasClass("active")) {
+    //     if (!toggleInterval) {
+    //       toggleInterval = setInterval(() => {
+    //         toggleCatalogTimer += 0.1;
+
+    //         if (toggleCatalogTimer < 0.4) {
+    //           return;
+    //         }
+
+    //         openCatalogMenu();
+
+    //         if (toggleInterval) {
+    //           clearInterval(toggleInterval);
+    //           toggleInterval = null;
+    //         }
+    //         toggleCatalogTimer = 0;
+    //       }, 100);
+    //     }
+    //   }
+    // });
+    // $(".toggle-catalog-menu").on("mouseleave", function () {
+    //   if (!$(".main-header__catalog-menu").hasClass("active")) {
+    //     if (toggleInterval) {
+    //       clearInterval(toggleInterval);
+    //       toggleInterval = null;
+    //     }
+    //     toggleCatalogTimer = 0;
+    //   }
+    // });
+
+    // $(".toggle-catalog-menu").on("click", function (e) {
+    //   if (!$(".main-header__catalog-menu").hasClass("active")) {
+    //     // // Remove body overflow
+    //     // $("body").addClass("overflow-hidden");
+    //     // // Set header to fixed
+    //     // $(".main-header").addClass("catalog-is-open");
+    //     // const headerHeight = $(".main-header").height();
+    //     // // Set catalog menu to fixed and set position
+    //     // $(".main-header__catalog-menu")
+    //     //   .addClass("active")
+    //     //   .css({
+    //     //     height: `calc(100% - ${headerHeight}px)`,
+    //     //     top: headerHeight,
+    //     //   });
+    //     // // Switch burger icon
+    //     // $(".main-header__catalog-btn-icon")
+    //     //   .removeClass("icon-burger")
+    //     //   .addClass("icon-cross");
+    //   } else {
+    //     e.preventDefault();
+    //     // Return overflow
+    //     $("body").removeClass("overflow-hidden");
+    //     // Remove header fixed class
+    //     $(".main-header").removeClass("catalog-is-open");
+    //     // Remove catalog menu fixed class and reset position
+    //     $(".main-header__catalog-menu").removeClass("active").css({
+    //       height: "",
+    //       top: "",
+    //     });
+    //     // Switch burger icon back
+    //     $(".main-header__catalog-btn-icon")
+    //       .removeClass("icon-cross")
+    //       .addClass("icon-burger");
+    //   }
+    // });
     function openCatalogMenu() {
       // Remove body overflow
       $("body").addClass("overflow-hidden");
 
       // Set header to fixed
       $(".main-header").addClass("catalog-is-open");
-      const headerHeight = $(".main-header").height();
+      const offset = $(".main-header")[0].getBoundingClientRect().bottom;
 
       // Set catalog menu to fixed and set position
       $(".main-header__catalog-menu")
         .addClass("active")
         .css({
-          height: `calc(100% - ${headerHeight}px)`,
-          top: headerHeight,
+          height: `calc(100% - ${offset}px)`,
+          top: offset,
         });
 
       // Switch burger icon
-      $(".main-header__catalog-btn-icon")
-        .removeClass("icon-burger")
-        .addClass("icon-cross");
+      // $(".main-header__catalog-btn-icon")
+      //   .removeClass("icon-burger")
+      //   .addClass("icon-cross");
+    }
+    function closeCatalogMenu() {
+      // Return overflow
+      $("body").removeClass("overflow-hidden");
+      // Remove header fixed class
+      $(".main-header").removeClass("catalog-is-open");
+      // Remove catalog menu fixed class and reset position
+      $(".main-header__catalog-menu").removeClass("active").css({
+        height: "",
+        top: "",
+      });
+      //     // Switch burger icon back
+      //     $(".main-header__catalog-btn-icon")
+      //       .removeClass("icon-cross")
+      //       .addClass("icon-burger");
     }
 
     // Filter catalog menu by letters
