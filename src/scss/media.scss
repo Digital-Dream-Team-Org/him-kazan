@@ -30,6 +30,19 @@
       padding-bottom: 100px;
     }
   }
+
+  .overlay-cdk {
+    &.contact-popup-overlay {
+      .overlay-cdk__contact-form {
+        .form-input-wrap {
+          width: 50%;
+        }
+        .form-textarea-wrap {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 @media (max-width: 1300px) {
   .container {
@@ -752,6 +765,16 @@
     &.contact-popup-overlay {
       .overlay-cdk__content-wrap {
         padding: 30px 15px;
+      }
+      .overlay-cdk__contact-form {
+        margin: 0;
+        .form-input-wrap {
+          width: 100%;
+          padding: 0;
+        }
+        .form-textarea-wrap {
+          width: 100%;
+        }
       }
     }
   }

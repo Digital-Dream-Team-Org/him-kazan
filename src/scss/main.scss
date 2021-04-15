@@ -2313,7 +2313,7 @@ ol.list {
   align-items: center;
   justify-content: center;
   &.active {
-    display: flex;
+    display: block;
   }
 
   &__close-btn {
@@ -2336,8 +2336,7 @@ ol.list {
       padding: 30px 62px;
 
       position: relative;
-      overflow: auto;
-      height: 100%;
+      margin: auto;
     }
     .overlay-cdk__title {
       font-style: normal;
@@ -2347,6 +2346,19 @@ ol.list {
       text-align: center;
       color: #0769a6;
       margin-bottom: 20px;
+    }
+    .overlay-cdk__contact-form {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -10px;
+      margin-right: -10px;
+      .form-input-wrap {
+        width: 100%;
+        padding: 0 10px;
+      }
+      .form-textarea-wrap {
+        width: 100%;
+      }
     }
   }
 }
