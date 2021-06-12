@@ -1,23 +1,3 @@
-const tag = document.createElement("script");
-
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName("script")[0];
-const secondScriptTag = document.getElementsByTagName("script")[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-secondScriptTag.parentNode.insertBefore(tag, secondScriptTag);
-
-// The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-  event.target.mute();
-  event.target.playVideo();
-}
-
-let isYTApiLoaded = false;
-
-function onYouTubeIframeAPIReady() {
-  isYTApiLoaded = true;
-}
-
 (function ($) {
   // Document ready
   $(function () {
@@ -260,14 +240,13 @@ function onYouTubeIframeAPIReady() {
       });
     });
 
+    // Youtube player
+    if ($(".player-tabs").length) {
+      loadPlayer();
+    }
+
     // Player tabs
-    var livePlayer = null;
-
     $(".player-tabs__controller-btn").on("click", function () {
-      if (!isYTApiLoaded) {
-        return;
-      }
-
       const id = $(this).data("id");
       if (!id) {
         console.error("Data id attribute not provided!");
@@ -284,22 +263,17 @@ function onYouTubeIframeAPIReady() {
         .find(".player-tabs__item")
         .removeClass("active");
 
-      // Destroy player
-      livePlayer.stopVideo();
-      livePlayer.destroy();
-      livePlayer = null; // Clear out the reference to the destroyed player
-
       $(this)
         .closest(".player-tabs-container")
         .find(".player-tabs__item")
         .each(function () {
           const tabId = $(this).data("id");
-          // // Destroy all iframes
-          // $(this)
-          //   .find("iframe")
-          //   .each(function () {
-          //     $(this).attr("src", "");
-          //   });
+          // Destroy all iframes
+          $(this)
+            .find("iframe")
+            .each(function () {
+              $(this).attr("src", "");
+            });
           // Set active class
           if (id === tabId) {
             $(this).addClass("active");
@@ -312,19 +286,6 @@ function onYouTubeIframeAPIReady() {
     });
 
     // Load player src into active tab depending on current time
-    // This code loads the IFrame Player API code asynchronously.
-
-    // Youtube player
-    if ($(".player-tabs").length) {
-      let ytLoadInterval = setInterval(() => {
-        if (isYTApiLoaded) {
-          loadPlayer();
-          clearInterval(ytLoadInterval);
-          ytLoadInterval = null;
-        }
-      }, 500);
-    }
-
     function loadPlayer() {
       const allowedOffset = [
         "-12:00",
@@ -367,12 +328,6 @@ function onYouTubeIframeAPIReady() {
         "+14:00",
       ];
 
-      let origin = window.origin;
-      if (origin.split("www.").length === 1) {
-        let originChunks = origin.split("://");
-        origin = originChunks[0] + "://" + "www." + originChunks[1];
-      }
-
       $(".player-tabs__item.active").each(function () {
         let offset = $(this)
           .find('input[name="iframe_source_time_offset"]')
@@ -380,8 +335,6 @@ function onYouTubeIframeAPIReady() {
         if (!allowedOffset.includes(offset)) {
           offset = "+00:00";
         }
-        // value="https://www.youtube.com/embed/Xiwuni9qmvY?playlist=Xiwuni9qmvY&autoplay=1&playsinline=1&loop=1&controls=0&rel=0&modestbranding=1&fs=0&frameborder=0&enablejsapi=1&origin=https%3A%2F%2Fhim-kazan.ru&widgetid=1"
-        const playerId = $(this).find(".player-tabs__item-iframe").attr("id");
 
         const m_date = moment().utcOffset(offset);
 
@@ -401,44 +354,19 @@ function onYouTubeIframeAPIReady() {
           second: 0,
         });
 
-        let ytId = null;
         if (m_date.isBetween(m_morning, m_day, undefined, "[]")) {
           // Morning
           const src = $(this).find('input[name="iframe_source_morning"]').val();
-          ytId = src.split("/embed/")[1];
-          // $(this).find(".player-tabs__item-iframe").attr("src", src);
+          $(this).find(".player-tabs__item-iframe").attr("src", src);
         } else if (m_date.isBetween(m_day, m_evening, undefined, "[]")) {
           // Day
           const src = $(this).find('input[name="iframe_source_day"]').val();
-          ytId = src.split("/embed/")[1];
-          // $(this).find(".player-tabs__item-iframe").attr("src", src);
+          $(this).find(".player-tabs__item-iframe").attr("src", src);
         } else {
           // night / Fallback
           const src = $(this).find('input[name="iframe_source_night"]').val();
-          ytId = src.split("/embed/")[1];
-          // $(this).find(".player-tabs__item-iframe").attr("src", src);
+          $(this).find(".player-tabs__item-iframe").attr("src", src);
         }
-
-        livePlayer = new YT.Player(playerId, {
-          width: "100%",
-          videoId: ytId,
-          playerVars: {
-            autoplay: 1,
-            playsinline: 1,
-            loop: 1,
-            controls: 0,
-            rel: 0,
-            modestbranding: 1,
-            fs: 0,
-            frameborder: 0,
-            playlist: ytId,
-            origin: origin,
-            widgetId: 1,
-          },
-          events: {
-            onReady: onPlayerReady,
-          },
-        });
       });
     }
 

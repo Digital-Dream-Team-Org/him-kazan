@@ -2303,13 +2303,17 @@
               <div class="player-tabs">
                 <div class="player-tabs__item active" data-id="1">
                   <div class="embed-responsive embed-responsive-16by9">
-                    <iframe
+                    <!-- <iframe
                       class="player-tabs__item-iframe disabled"
                       src=""
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
-                    ></iframe>
+                    ></iframe> -->
+                    <div
+                      id="player1"
+                      class="player-tabs__item-iframe disabled"
+                    ></div>
                   </div>
                   <div class="player-tabs__source">
                     <!--For iframe_source_time_offset use default UTC offsets (e.g. +03:00, -05:00, 00:00)-->
@@ -2321,7 +2325,7 @@
                     <!--Put time depending iframe source here-->
                     <!--Important get params for youtube ?controls=0&modestbranding&rel=0&autoplay=1&mute=1&loop=1&playlist=VIDEO_ID-->
                     <!--playlist=VIDEO_ID Обязан быть равен ID самого видео для цикла! например ниже /uNVJQCGxqb0 и playlist=uNVJQCGxqb0-->
-                    <!-- <input
+                    <input
                       type="hidden"
                       name="iframe_source_morning"
                       value="https://www.youtube.com/embed/L7OLY4HCctQ?controls=0&modestbranding=1&rel=0&autoplay=1&mute=1&loop=1&playlist=L7OLY4HCctQ"
@@ -2335,19 +2339,23 @@
                       type="hidden"
                       name="iframe_source_night"
                       value="https://www.youtube.com/embed/GyByFutCTe4?controls=0&modestbranding=1&rel=0&autoplay=1&mute=1&loop=1&playlist=GyByFutCTe4"
-                    /> -->
+                    />
                   </div>
                 </div>
                 <div class="player-tabs__item" data-id="2">
                   <div class="embed-responsive embed-responsive-16by9">
-                    <iframe
+                    <!-- <iframe
                       id="test2"
                       class="player-tabs__item-iframe disabled"
                       src=""
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
-                    ></iframe>
+                    ></iframe> -->
+                    <div
+                      id="player2"
+                      class="player-tabs__item-iframe disabled"
+                    ></div>
                   </div>
                   <div class="player-tabs__source">
                     <!--For iframe_source_time_offset use default UTC offsets (e.g. +03:00, -05:00, 00:00)-->
