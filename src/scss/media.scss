@@ -32,14 +32,12 @@
   }
 
   .overlay-cdk {
-    &.contact-popup-overlay {
-      .overlay-cdk__contact-form {
-        .form-input-wrap {
-          width: 50%;
-        }
-        .form-textarea-wrap {
-          width: 100%;
-        }
+    .overlay-cdk__contact-form {
+      .form-input-wrap {
+        width: 50%;
+      }
+      .form-textarea-wrap {
+        width: 100%;
       }
     }
   }
@@ -762,19 +760,17 @@
   }
 
   .overlay-cdk {
-    &.contact-popup-overlay {
-      .overlay-cdk__content-wrap {
-        padding: 30px 15px;
+    .overlay-cdk__content-wrap {
+      padding: 30px 15px;
+    }
+    .overlay-cdk__contact-form {
+      margin: 0;
+      .form-input-wrap {
+        width: 100%;
+        padding: 0;
       }
-      .overlay-cdk__contact-form {
-        margin: 0;
-        .form-input-wrap {
-          width: 100%;
-          padding: 0;
-        }
-        .form-textarea-wrap {
-          width: 100%;
-        }
+      .form-textarea-wrap {
+        width: 100%;
       }
     }
   }
@@ -840,5 +836,15 @@
     &__title {
       font-size: 24px;
     }
+  }
+}
+
+// tb-notification-widget fix
+@media only screen and (min-device-width: 481px) {
+  tb-notification-widget
+    #tb-notification-widget-inner.tb-notification-widget-inner
+    .tb-nw-wahunter_mode_inline
+    .tb-nw-wahunter__submit-form {
+    min-width: 0 !important;
   }
 }

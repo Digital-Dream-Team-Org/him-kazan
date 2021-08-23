@@ -2315,6 +2315,11 @@ ol.list {
   &.active {
     display: block;
   }
+  &--vertical-centered {
+    &.active {
+      display: flex;
+    }
+  }
 
   &__close-btn {
     position: absolute;
@@ -2328,39 +2333,49 @@ ol.list {
     }
   }
 
-  &.contact-popup-overlay {
-    .overlay-cdk__content-wrap {
-      max-width: 526px;
-      width: 100%;
-      background: #fff;
-      padding: 30px 62px;
+  .overlay-cdk__content-wrap {
+    max-width: 526px;
+    width: 100%;
+    background: #fff;
+    padding: 30px 62px;
 
-      position: relative;
-      margin: auto;
+    position: relative;
+    margin: auto;
+  }
+  .overlay-cdk__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 48px;
+    text-align: center;
+    color: #0769a6;
+    margin-bottom: 20px;
+  }
+  .overlay-cdk__subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #0769a6;
+    margin-bottom: 20px;
+  }
+  .overlay-cdk__contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+    .form-input-wrap {
+      width: 100%;
+      padding: 0 10px;
     }
-    .overlay-cdk__title {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 36px;
-      line-height: 48px;
-      text-align: center;
-      color: #0769a6;
-      margin-bottom: 20px;
-    }
-    .overlay-cdk__contact-form {
-      display: flex;
-      flex-wrap: wrap;
-      margin-left: -10px;
-      margin-right: -10px;
-      .form-input-wrap {
-        width: 100%;
-        padding: 0 10px;
-      }
-      .form-textarea-wrap {
-        width: 100%;
-      }
+    .form-textarea-wrap {
+      width: 100%;
     }
   }
+  // &.contact-popup-overlay {
+
+  // }
 }
 
 .floating-manager-wrap {
@@ -3009,6 +3024,15 @@ ol.list {
       text-decoration: none;
       color: #fff;
       background: #0769a6;
+    }
+
+    &--green {
+      background: #25d366;
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+        background: #0cb84b;
+      }
     }
   }
   &__btn {

@@ -35,7 +35,7 @@ function onYouTubeIframeAPIReady() {
         key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode(key);
       }
-      var regex = /([1-9() +-])/;
+      var regex = /([0-9() +-])/;
       if (!regex.test(key)) {
         theEvent.returnValue = false;
         if (theEvent.preventDefault) theEvent.preventDefault();
@@ -88,6 +88,7 @@ function onYouTubeIframeAPIReady() {
     });
 
     // Popups
+    // Contact form popup
     $(".open-contact-popup").on("click", function (e) {
       e.preventDefault();
       $("body").addClass("overflow-hidden");
@@ -98,6 +99,13 @@ function onYouTubeIframeAPIReady() {
       if (product) {
         $("#contactFormPopup").find(".overlay-form-product-name").val(product);
       }
+    });
+
+    // Whatsapp popup
+    $(".open-whatsapp-popup").on("click", function (e) {
+      e.preventDefault();
+      $("body").addClass("overflow-hidden");
+      $("#whatsappFormPopup").addClass("active");
     });
 
     // Close overlay on outside click
