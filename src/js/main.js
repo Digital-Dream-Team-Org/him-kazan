@@ -180,6 +180,21 @@ function onYouTubeIframeAPIReady() {
       //   );
     });
 
+    // Toggle catalog page collapse
+    $(".catalog-p-collapse__toggle-btn").on("click", function (e) {
+      e.preventDefault();
+
+      const parent = $(this).closest(".catalog-p-collapse");
+
+      if (parent.hasClass("active")) {
+        // parent.find(".catalog-page-collapse__body").slideUp();
+        parent.removeClass("active");
+      } else {
+        // parent.find(".catalog-page-collapse__body").slideDown();
+        parent.addClass("active");
+      }
+    });
+
     // Scrolling slider
     $(".scrolling-container").each(function () {
       const scrollbar = $(this)
@@ -210,8 +225,12 @@ function onYouTubeIframeAPIReady() {
       if (slidesLength >= 5) {
         swiperConfig = {
           ...swiperConfig,
-          slidesPerColumn: 2,
-          slidesPerColumnFill: "row",
+          breakpoints: {
+            992: {
+              slidesPerColumn: 2,
+              slidesPerColumnFill: "row",
+            },
+          },
         };
       } else {
         swiperConfig = {
@@ -391,41 +410,173 @@ function onYouTubeIframeAPIReady() {
         // value="https://www.youtube.com/embed/Xiwuni9qmvY?playlist=Xiwuni9qmvY&autoplay=1&playsinline=1&loop=1&controls=0&rel=0&modestbranding=1&fs=0&frameborder=0&enablejsapi=1&origin=https%3A%2F%2Fhim-kazan.ru&widgetid=1"
         const playerId = $(this).find(".player-tabs__item-iframe").attr("id");
 
+        // const m_date = moment().utcOffset(offset);
+
+        // const m_morning = moment().utcOffset(offset).set({
+        //   hour: 6,
+        //   minute: 0,
+        //   second: 0,
+        // });
+        // const m_day = moment().utcOffset(offset).set({
+        //   hour: 12,
+        //   minute: 0,
+        //   second: 0,
+        // });
+        // const m_evening = moment().utcOffset(offset).set({
+        //   hour: 18,
+        //   minute: 0,
+        //   second: 0,
+        // });
+
+        // let ytId = null;
+        // if (m_date.isBetween(m_morning, m_day, undefined, "[]")) {
+        //   // Morning
+        //   const src = $(this).find('input[name="iframe_source_morning"]').val();
+        //   ytId = src.split("/embed/")[1];
+        //   // $(this).find(".player-tabs__item-iframe").attr("src", src);
+        // } else if (m_date.isBetween(m_day, m_evening, undefined, "[]")) {
+        //   // Day
+        //   const src = $(this).find('input[name="iframe_source_day"]').val();
+        //   ytId = src.split("/embed/")[1];
+        //   // $(this).find(".player-tabs__item-iframe").attr("src", src);
+        // } else {
+        //   // night / Fallback
+        //   const src = $(this).find('input[name="iframe_source_night"]').val();
+        //   ytId = src.split("/embed/")[1];
+        //   // $(this).find(".player-tabs__item-iframe").attr("src", src);
+        // }
         const m_date = moment().utcOffset(offset);
 
-        const m_morning = moment().utcOffset(offset).set({
-          hour: 6,
-          minute: 0,
-          second: 0,
-        });
-        const m_day = moment().utcOffset(offset).set({
-          hour: 12,
-          minute: 0,
-          second: 0,
-        });
-        const m_evening = moment().utcOffset(offset).set({
-          hour: 18,
-          minute: 0,
-          second: 0,
-        });
-
         let ytId = null;
-        if (m_date.isBetween(m_morning, m_day, undefined, "[]")) {
-          // Morning
-          const src = $(this).find('input[name="iframe_source_morning"]').val();
-          ytId = src.split("/embed/")[1];
-          // $(this).find(".player-tabs__item-iframe").attr("src", src);
-        } else if (m_date.isBetween(m_day, m_evening, undefined, "[]")) {
-          // Day
-          const src = $(this).find('input[name="iframe_source_day"]').val();
-          ytId = src.split("/embed/")[1];
-          // $(this).find(".player-tabs__item-iframe").attr("src", src);
-        } else {
-          // night / Fallback
-          const src = $(this).find('input[name="iframe_source_night"]').val();
-          ytId = src.split("/embed/")[1];
-          // $(this).find(".player-tabs__item-iframe").attr("src", src);
+
+        // Morning
+        const m_src = $(this).find('input[name="iframe_source_morning"]');
+        let m_srcVal = m_src.val();
+
+        let m_dataStart = m_src.data("start");
+        let m_dataEnd = m_src.data("end");
+        let m_start_time = moment(m_dataStart, "HH:mm:ss");
+        let m_end_time = moment(m_dataEnd, "HH:mm:ss");
+        const m_morning_start = moment()
+          .utcOffset(offset)
+          .set({
+            hour: m_start_time.get("hour"),
+            minute: m_start_time.get("minute"),
+            second: m_start_time.get("second"),
+          });
+        const m_morning_end = moment()
+          .utcOffset(offset)
+          .set({
+            hour: m_end_time.get("hour"),
+            minute: m_end_time.get("minute"),
+            second: m_end_time.get("second"),
+          });
+        if (m_end_time.isSameOrBefore(m_start_time, "hour")) {
+          m_morning_end.add(1, "days");
         }
+
+        // Day
+        const d_src = $(this).find('input[name="iframe_source_day"]');
+        let d_srcVal = d_src.val();
+
+        let d_dataStart = d_src.data("start");
+        let d_dataEnd = d_src.data("end");
+        let d_start_time = moment(d_dataStart, "HH:mm:ss");
+        let d_end_time = moment(d_dataEnd, "HH:mm:ss");
+        const m_day_start = moment()
+          .utcOffset(offset)
+          .set({
+            hour: d_start_time.get("hour"),
+            minute: d_start_time.get("minute"),
+            second: d_start_time.get("second"),
+          });
+        const m_day_end = moment()
+          .utcOffset(offset)
+          .set({
+            hour: d_end_time.get("hour"),
+            minute: d_end_time.get("minute"),
+            second: d_end_time.get("second"),
+          });
+        if (d_end_time.isSameOrBefore(d_start_time, "hour")) {
+          m_day_end.add(1, "days");
+        }
+
+        // night / Fallback
+        const n_src = $(this).find('input[name="iframe_source_night"]');
+        let n_srcVal = n_src.val();
+
+        let n_dataStart = n_src.data("start");
+        let n_dataEnd = n_src.data("end");
+        let n_start_time = moment(n_dataStart, "HH:mm:ss");
+        let n_end_time = moment(n_dataEnd, "HH:mm:ss");
+
+        const m_evening_start = moment()
+          .utcOffset(offset)
+          .set({
+            hour: n_start_time.get("hour"),
+            minute: n_start_time.get("minute"),
+            second: n_start_time.get("second"),
+          });
+        const m_evening_end = moment()
+          .utcOffset(offset)
+          .set({
+            hour: n_end_time.get("hour"),
+            minute: n_end_time.get("minute"),
+            second: n_end_time.get("second"),
+          });
+
+        if (n_end_time.isSameOrBefore(n_start_time, "hour")) {
+          m_evening_end.add(1, "days");
+        }
+
+        if (m_date.isBetween(m_morning_start, m_morning_end, undefined, "[)")) {
+          ytId = m_srcVal.split("/embed/")[1];
+          console.log("morning");
+        } else if (m_date.isBetween(m_day_start, m_day_end, undefined, "[)")) {
+          ytId = d_srcVal.split("/embed/")[1];
+          console.log("day");
+        } else if (
+          m_date.isBetween(m_evening_start, m_evening_end, undefined, "[)")
+        ) {
+          ytId = n_srcVal.split("/embed/")[1];
+          console.log("night");
+        } else {
+          ytId = n_srcVal.split("/embed/")[1];
+          console.log("fallback");
+        }
+
+        // let ytId = null;
+        // if (m_date.isBetween(m_morning, m_day, undefined, "[]")) {
+        //   // Morning
+        //   const src = $(this).find('input[name="iframe_source_morning"]');
+        //   let srcVal = src.val();
+        //   ytId = srcVal.split("/embed/")[1];
+
+        //   let dataStart = src.data("start");
+        //   console.log("file: main.js - line 474 - dataStart", dataStart);
+        //   let dataEnd = src.data("end");
+        //   console.log("file: main.js - line 476 - dataEnd", dataEnd);
+        // } else if (m_date.isBetween(m_day, m_evening, undefined, "[]")) {
+        //   // Day
+        //   const src = $(this).find('input[name="iframe_source_day"]');
+        //   let srcVal = src.val();
+        //   ytId = srcVal.split("/embed/")[1];
+
+        //   let dataStart = src.data("start");
+        //   console.log("file: main.js - line 474 - dataStart", dataStart);
+        //   let dataEnd = src.data("end");
+        //   console.log("file: main.js - line 476 - dataEnd", dataEnd);
+        // } else {
+        //   // night / Fallback
+        //   const src = $(this).find('input[name="iframe_source_night"]');
+        //   let srcVal = src.val();
+        //   ytId = srcVal.split("/embed/")[1];
+
+        //   let dataStart = src.data("start");
+        //   console.log("file: main.js - line 474 - dataStart", dataStart);
+        //   let dataEnd = src.data("end");
+        //   console.log("file: main.js - line 476 - dataEnd", dataEnd);
+        // }
 
         livePlayer = new YT.Player(playerId, {
           width: "100%",
@@ -439,16 +590,28 @@ function onYouTubeIframeAPIReady() {
             modestbranding: 1,
             fs: 0,
             frameborder: 0,
-            playlist: ytId,
+            // playlist: ytId,
             origin: origin,
             widgetId: 1,
           },
           events: {
             onReady: onPlayerReady,
+            onStateChange: function (e) {
+              if (e.data === YT.PlayerState.ENDED) {
+                livePlayer.playVideo();
+              }
+            },
           },
         });
       });
     }
+
+    // Toggle mobile search
+    $(".toggle-mobile-search").on("click", function (e) {
+      e.preventDefault();
+
+      $(".main-header__search-wrap").toggleClass("open");
+    });
 
     // Toggle mobile sliderbar
     $(".toggle-mobile-slidebar").on("click", function () {
@@ -487,50 +650,26 @@ function onYouTubeIframeAPIReady() {
     }
 
     // Toggle catalog menu
-    $(".toggle-catalog-menu, .main-header__catalog-menu").on(
-      "mouseenter mouseover",
-      function () {
-        if (toggleInterval) {
-          clearInterval(toggleInterval);
-          toggleInterval = null;
-        }
-        toggleCatalogTimer = 0;
-        if (!$(".main-header__catalog-menu").hasClass("active")) {
-          openCatalogMenu();
-        }
-      },
-    );
-
-    let toggleCatalogTimer = 0;
-    let toggleInterval = null;
-    $(".toggle-catalog-menu, .main-header__catalog-menu").on(
-      "mouseleave",
-      function () {
-        if ($(".main-header__catalog-menu").hasClass("active")) {
-          toggleInterval = setInterval(() => {
-            toggleCatalogTimer += 0.1;
-
-            if (toggleCatalogTimer < 0.4) {
-              return;
-            }
-
-            closeCatalogMenu();
-
-            if (toggleInterval) {
-              clearInterval(toggleInterval);
-              toggleInterval = null;
-            }
-            toggleCatalogTimer = 0;
-          }, 100);
-        }
-      },
-    );
+    // $(".toggle-catalog-menu, .main-header__catalog-menu").on(
+    //   "mouseenter mouseover",
+    //   function () {
+    //     if (toggleInterval) {
+    //       clearInterval(toggleInterval);
+    //       toggleInterval = null;
+    //     }
+    //     toggleCatalogTimer = 0;
+    //     if (!$(".main-header__catalog-menu").hasClass("active")) {
+    //       openCatalogMenu();
+    //     }
+    //   },
+    // );
 
     // let toggleCatalogTimer = 0;
     // let toggleInterval = null;
-    // $(".toggle-catalog-menu").on("mouseenter", function () {
-    //   if (!$(".main-header__catalog-menu").hasClass("active")) {
-    //     if (!toggleInterval) {
+    // $(".toggle-catalog-menu, .main-header__catalog-menu").on(
+    //   "mouseleave",
+    //   function () {
+    //     if ($(".main-header__catalog-menu").hasClass("active")) {
     //       toggleInterval = setInterval(() => {
     //         toggleCatalogTimer += 0.1;
 
@@ -538,7 +677,7 @@ function onYouTubeIframeAPIReady() {
     //           return;
     //         }
 
-    //         openCatalogMenu();
+    //         closeCatalogMenu();
 
     //         if (toggleInterval) {
     //           clearInterval(toggleInterval);
@@ -547,53 +686,18 @@ function onYouTubeIframeAPIReady() {
     //         toggleCatalogTimer = 0;
     //       }, 100);
     //     }
-    //   }
-    // });
-    // $(".toggle-catalog-menu").on("mouseleave", function () {
-    //   if (!$(".main-header__catalog-menu").hasClass("active")) {
-    //     if (toggleInterval) {
-    //       clearInterval(toggleInterval);
-    //       toggleInterval = null;
-    //     }
-    //     toggleCatalogTimer = 0;
-    //   }
-    // });
+    //   },
+    // );
 
-    // $(".toggle-catalog-menu").on("click", function (e) {
-    //   if (!$(".main-header__catalog-menu").hasClass("active")) {
-    //     // // Remove body overflow
-    //     // $("body").addClass("overflow-hidden");
-    //     // // Set header to fixed
-    //     // $(".main-header").addClass("catalog-is-open");
-    //     // const headerHeight = $(".main-header").height();
-    //     // // Set catalog menu to fixed and set position
-    //     // $(".main-header__catalog-menu")
-    //     //   .addClass("active")
-    //     //   .css({
-    //     //     height: `calc(100% - ${headerHeight}px)`,
-    //     //     top: headerHeight,
-    //     //   });
-    //     // // Switch burger icon
-    //     // $(".main-header__catalog-btn-icon")
-    //     //   .removeClass("icon-burger")
-    //     //   .addClass("icon-cross");
-    //   } else {
-    //     e.preventDefault();
-    //     // Return overflow
-    //     $("body").removeClass("overflow-hidden");
-    //     // Remove header fixed class
-    //     $(".main-header").removeClass("catalog-is-open");
-    //     // Remove catalog menu fixed class and reset position
-    //     $(".main-header__catalog-menu").removeClass("active").css({
-    //       height: "",
-    //       top: "",
-    //     });
-    //     // Switch burger icon back
-    //     $(".main-header__catalog-btn-icon")
-    //       .removeClass("icon-cross")
-    //       .addClass("icon-burger");
-    //   }
-    // });
+    $(".toggle-catalog-menu").on("click", function (e) {
+      e.preventDefault();
+      if (!$(".main-header__catalog-menu").hasClass("active")) {
+        openCatalogMenu();
+      } else {
+        closeCatalogMenu();
+      }
+    });
+
     function openCatalogMenu() {
       // Remove body overflow
       $("body").addClass("overflow-hidden");
@@ -630,6 +734,13 @@ function onYouTubeIframeAPIReady() {
       //       .removeClass("icon-cross")
       //       .addClass("icon-burger");
     }
+
+    // Backdrop click close
+    $(".main-header__catalog-menu").on("click", function (e) {
+      if (e.target !== e.currentTarget) return;
+
+      closeCatalogMenu();
+    });
 
     // Filter catalog menu by letters
     $(".filter-catalog-menu").on("click", function () {
