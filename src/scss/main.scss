@@ -294,6 +294,9 @@ ol.list {
     // left: 0;
     // width: 100%;
     // z-index: 1000;
+    .main-header__catalog-btn {
+      background: #0769a6;
+    }
   }
 
   // Inner START
@@ -688,6 +691,8 @@ ol.list {
         height: 100%;
         max-height: 50vh;
         padding-right: 20px;
+        // max-width: 1200px;
+        // margin: auto;
 
         /* width */
         &::-webkit-scrollbar {
@@ -759,13 +764,12 @@ ol.list {
     }
   }
   &__catalog-menu-section {
-    margin-bottom: 30px;
     &-title {
       font-weight: 500;
-      font-size: 15px;
-      line-height: 20px;
+      font-size: 18px;
+      line-height: 24px;
       color: #1b1b1b;
-      margin-bottom: 20px;
+      margin-bottom: 8px;
 
       a {
         text-decoration: none !important;
@@ -779,6 +783,13 @@ ol.list {
         font-size: 14px;
         line-height: 20px;
         color: #1b1b1b;
+        transition: 200ms;
+        &:hover {
+          color: #0769a6;
+          a {
+            color: #0769a6;
+          }
+        }
 
         a {
           color: #1b1b1b;
@@ -2192,11 +2203,15 @@ ol.list {
 
   &__image-wrap {
     margin-bottom: 12px;
+    height: 375px;
   }
   &__image {
     border-radius: 12px;
     border: 1px solid #e0e0e0;
     width: 100%;
+
+    height: 100%;
+    object-fit: cover;
   }
 
   &__title {
@@ -3246,16 +3261,17 @@ ol.list {
 }
 
 .product-page-info {
-  margin-bottom: 25px;
+  margin-bottom: 90px;
   overflow: hidden;
 
   &__row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 35px;
+    // margin-bottom: 35px;
     margin-left: -10px;
     margin-right: -10px;
+    height: 100%;
   }
   &__col {
     padding: 0 10px;
@@ -3268,9 +3284,9 @@ ol.list {
   }
 
   &__image-wrap {
-    // max-width: 374px;
     width: 100%;
-    margin-bottom: 20px;
+    height: 100%;
+    max-height: 456px;
 
     position: relative;
     .product-page-info__status-wrap {
@@ -3284,8 +3300,9 @@ ol.list {
   &__image {
     border-radius: 10px;
     width: 100%;
-    max-height: 450px;
     object-fit: cover;
+
+    height: 100%;
   }
 
   &__description {
@@ -3489,7 +3506,8 @@ ol.list {
     background: #ffffff;
     border-radius: 10px;
     padding: 35px 22px;
-    padding-bottom: 60px;
+    height: 100%;
+    max-height: 456px;
   }
   &__packing {
     display: flex;
@@ -3558,7 +3576,7 @@ ol.list {
   }
 
   &__benefits {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     &-item {
       background: #ffffff;
       box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.03);
@@ -3595,9 +3613,9 @@ ol.list {
 }
 
 .product-page-gallery-wrap {
-  margin-bottom: 20px;
-
   position: relative;
+  height: 541px;
+
   .product-page-info__status-wrap {
     position: absolute;
     top: 20px;
@@ -3608,7 +3626,7 @@ ol.list {
 }
 .product-page-gallery {
   // height: 528px;
-  height: auto;
+  height: 100%;
 
   .swiper-container {
     width: 100%;
@@ -3624,10 +3642,13 @@ ol.list {
   }
 
   .gallery-top {
-    // height: 80%;
-    height: 100%;
+    height: calc(100% - 85px);
     width: 100%;
     border-radius: 10px;
+
+    .swiper-slide {
+      height: 100%;
+    }
   }
 
   .gallery-thumbs-wrap {
@@ -3713,6 +3734,7 @@ ol.list {
 .product-page-header-mobile {
   display: none;
 
+  margin-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #e0e0e0;
@@ -3735,4 +3757,13 @@ ol.list {
   text-decoration: none;
   color: #128ad6;
   font-size: 18px;
+}
+
+.masonry-container {
+  margin-left: -20px;
+  margin-right: -20px;
+  &__item {
+    width: 22.75%;
+    margin-bottom: -10px;
+  }
 }

@@ -21,6 +21,25 @@ function onYouTubeIframeAPIReady() {
 (function ($) {
   // Document ready
   $(function () {
+    let magicGrid = null;
+    if (typeof MagicGrid !== "undefined") {
+      if (
+        $(".masonry-container").length &&
+        $(".masonry-container__item").length
+      ) {
+        magicGrid = new MagicGrid({
+          container: ".masonry-container", // Required. Can be a class, id, or an HTMLElement.
+          static: true, // Required for static content.
+          animate: true, // Optional.
+          maxColumns: 4,
+          center: true,
+          gutter: 20,
+        });
+
+        magicGrid.listen();
+      }
+    }
+
     // Simple phone input mask
     $(".phone-input-mask").on("keypress paste", function (evt) {
       // ^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$
@@ -188,9 +207,10 @@ function onYouTubeIframeAPIReady() {
 
       if (parent.hasClass("active")) {
         // parent.find(".catalog-page-collapse__body").slideUp();
-        parent.removeClass("active");
+        $(".catalog-p-collapse").removeClass("active");
       } else {
         // parent.find(".catalog-page-collapse__body").slideDown();
+        $(".catalog-p-collapse").removeClass("active");
         parent.addClass("active");
       }
     });
@@ -531,18 +551,14 @@ function onYouTubeIframeAPIReady() {
 
         if (m_date.isBetween(m_morning_start, m_morning_end, undefined, "[)")) {
           ytId = m_srcVal.split("/embed/")[1];
-          console.log("morning");
         } else if (m_date.isBetween(m_day_start, m_day_end, undefined, "[)")) {
           ytId = d_srcVal.split("/embed/")[1];
-          console.log("day");
         } else if (
           m_date.isBetween(m_evening_start, m_evening_end, undefined, "[)")
         ) {
           ytId = n_srcVal.split("/embed/")[1];
-          console.log("night");
         } else {
           ytId = n_srcVal.split("/embed/")[1];
-          console.log("fallback");
         }
 
         // let ytId = null;
@@ -715,9 +731,14 @@ function onYouTubeIframeAPIReady() {
         });
 
       // Switch burger icon
-      // $(".main-header__catalog-btn-icon")
-      //   .removeClass("icon-burger")
-      //   .addClass("icon-cross");
+      $(".main-header__catalog-btn-icon")
+        .removeClass("icon-burger")
+        .addClass("icon-cross");
+
+      // Trigger masonry
+      if (magicGrid) {
+        magicGrid.positionItems();
+      }
     }
     function closeCatalogMenu() {
       // Return overflow
@@ -729,10 +750,10 @@ function onYouTubeIframeAPIReady() {
         height: "",
         top: "",
       });
-      //     // Switch burger icon back
-      //     $(".main-header__catalog-btn-icon")
-      //       .removeClass("icon-cross")
-      //       .addClass("icon-burger");
+      // Switch burger icon back
+      $(".main-header__catalog-btn-icon")
+        .removeClass("icon-cross")
+        .addClass("icon-burger");
     }
 
     // Backdrop click close
