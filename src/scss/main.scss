@@ -1007,11 +1007,13 @@ ol.list {
     padding-top: 20px;
     padding-bottom: 70px;
     font-size: 14px;
-    line-height: 28px;
+    // line-height: 28px;
+    line-height: 150%;
     color: #f6f7f9;
     p {
       font-size: 14px;
-      line-height: 28px;
+      // line-height: 28px;
+      line-height: 150%;
       color: #f6f7f9;
     }
     a {
@@ -2560,10 +2562,16 @@ ol.list {
   &.active {
     transform: translateX(0);
     .floating-manager {
-      padding-left: 20px;
+      padding-left: calc(20px + 26px); // label width
+      &::after {
+        display: block;
+      }
     }
     .floating-manager__label-wrap {
       display: none;
+    }
+    .floating-manager__close-btn {
+      display: block;
     }
   }
 
@@ -2577,7 +2585,7 @@ ol.list {
   padding: 20px 20px;
   position: relative;
   padding-left: calc(20px + 48px); // label width
-  padding-right: 30px;
+  // padding-right: 30px;
   &::after {
     content: "";
     background: #128ad6;
@@ -2585,16 +2593,20 @@ ol.list {
     height: 100%;
     width: 26px;
     top: 0;
-    right: 0;
-    border-radius: 0 7px 7px 0;
+    left: 0;
+    border-radius: 7px 0 0 7px;
+
+    display: none;
   }
 
   &__close-btn {
+    display: none;
+
     position: absolute;
     // top: 20px;
     // right: 20px;
     top: 5px;
-    right: 1px;
+    left: 1px;
     background: none;
     border: none;
     outline: none;
@@ -2930,6 +2942,7 @@ ol.list {
 
     display: block;
     position: relative;
+    margin-bottom: 10px;
 
     &-quantity {
       color: #128ad6;
@@ -2942,16 +2955,20 @@ ol.list {
     list-style: none;
     padding-left: 0;
     margin: 0;
+    margin-bottom: 12px;
 
-    height: 85px;
+    height: 80px;
     overflow: hidden;
     transition: 200ms;
 
     &-item {
       font-weight: 500;
-      font-size: 18px;
-      line-height: 28px;
+      font-size: 16px;
+      line-height: 18px;
       color: #b0b0b0;
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
     }
     &-link {
       color: #b0b0b0;
@@ -3334,6 +3351,7 @@ ol.list {
     &-value {
       font-size: 44px;
       line-height: 60px;
+      word-break: break-all;
     }
     &-currency {
       font-size: 32px;
@@ -3343,6 +3361,7 @@ ol.list {
   }
   &__order-btn-wrap {
     width: 100%;
+    margin-top: auto;
   }
   &__order-btn {
     display: inline-block;
@@ -3508,6 +3527,9 @@ ol.list {
     padding: 35px 22px;
     height: 100%;
     max-height: 456px;
+
+    display: flex;
+    flex-direction: column;
   }
   &__packing {
     display: flex;
@@ -3714,14 +3736,17 @@ ol.list {
   display: flex;
 
   justify-content: space-between;
-  padding-bottom: 15px;
-  margin-bottom: 30px;
+  padding-bottom: 17px;
+  margin-bottom: 27px;
 
   border-bottom: 1px solid #e0e0e0;
 
   font-size: 22px;
   line-height: 28px;
   font-weight: 600;
+  * {
+    margin: 0;
+  }
   h1 {
     font-size: 22px;
     line-height: 28px;

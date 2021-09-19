@@ -29,8 +29,9 @@ function onYouTubeIframeAPIReady() {
       ) {
         magicGrid = new MagicGrid({
           container: ".masonry-container", // Required. Can be a class, id, or an HTMLElement.
-          static: true, // Required for static content.
-          animate: true, // Optional.
+          static: false, // Required for static content.
+          items: $(".masonry-container__item").length,
+          animate: false, // Optional.
           maxColumns: 4,
           center: true,
           gutter: 20,
@@ -197,6 +198,17 @@ function onYouTubeIframeAPIReady() {
       //   .append(
       //     `<button class="catalog-table__collapse-close-btn"><i class="icon-cross"></i></button>`,
       //   );
+    });
+
+    // Render catalog page collapse
+    $(".catalog-p-collapse").each(function (e) {
+      let $body = $(this).find(".catalog-p-collapse__body");
+      let $list = $(this).find(".catalog-p-collapse__list");
+      let $listItems = $(this).find(".catalog-p-collapse__list-item");
+      if ($listItems.length <= 3) {
+        $list.css("height", "auto");
+        $body.find(".catalog-p-collapse__toggle-btn").css("display", "none");
+      }
     });
 
     // Toggle catalog page collapse
@@ -741,6 +753,8 @@ function onYouTubeIframeAPIReady() {
       }
     }
     function closeCatalogMenu() {
+      // Scroll top inner content
+      $(".main-header__catalog-menu-inner-content").scrollTop(0);
       // Return overflow
       $("body").removeClass("overflow-hidden");
       // Remove header fixed class
@@ -754,6 +768,14 @@ function onYouTubeIframeAPIReady() {
       $(".main-header__catalog-btn-icon")
         .removeClass("icon-cross")
         .addClass("icon-burger");
+
+      // Switch back inner content
+      if (lettersBackup) {
+        $(".filter-catalog-menu").removeClass("active");
+        $(".main-header__catalog-menu-body .masonry-container").html(
+          lettersBackup,
+        );
+      }
     }
 
     // Backdrop click close
@@ -764,6 +786,9 @@ function onYouTubeIframeAPIReady() {
     });
 
     // Filter catalog menu by letters
+    let lettersBackup = $(
+      ".main-header__catalog-menu-body .masonry-container",
+    ).html();
     $(".filter-catalog-menu").on("click", function () {
       const dataValue = $(this).data("menu-value");
       if (!dataValue) {
@@ -775,22 +800,63 @@ function onYouTubeIframeAPIReady() {
         $(this).addClass("active");
 
         // Return all sections
-        $(".catalog-menu-section").each(function () {
-          $(this).parent().removeClass("d-none");
-        });
+        if (lettersBackup) {
+          $(".main-header__catalog-menu-body .masonry-container").html(
+            lettersBackup,
+          );
+        }
         // Hide selected sections
         $(".catalog-menu-section").each(function () {
           const dataSectionValue = $(this).data("menu-value");
           if (dataSectionValue !== dataValue) {
-            $(this).parent().addClass("d-none");
+            $(this).parent().remove();
           }
         });
+
+        // Create empty container item for proper magic grid update
+        if ($(".masonry-container__item").length === 0) {
+          $(".masonry-container").append(
+            '<div class="masonry-container__item">&nbsp;</div>',
+          );
+        }
+
+        // // Return all sections
+        // $(".catalog-menu-section").each(function () {
+        //   $(this).parent().removeClass("d-none");
+        // });
+        // // Hide selected sections
+        // $(".catalog-menu-section").each(function () {
+        //   const dataSectionValue = $(this).data("menu-value");
+        //   if (dataSectionValue !== dataValue) {
+        //     $(this).parent().addClass("d-none");
+        //   }
+        // });
       } else {
-        // Remove filters if clicked on active
+        // // Remove filters if clicked on active
         $(".filter-catalog-menu").removeClass("active");
-        $(".catalog-menu-section").each(function () {
-          $(this).parent().removeClass("d-none");
-        });
+        // Return all sections
+        if (lettersBackup) {
+          $(".main-header__catalog-menu-body .masonry-container").html(
+            lettersBackup,
+          );
+        }
+        // $(".catalog-menu-section").each(function () {
+        //   $(this).parent().removeClass("d-none");
+        // });
+      }
+
+      // Update masonary grid
+      if (magicGrid) {
+        $(".masonry-container__item").css("opacity", 0);
+        setTimeout(() => {
+          magicGrid.positionItems();
+          $(".masonry-container__item").animate(
+            {
+              opacity: 1,
+            },
+            200,
+          );
+        }, 0);
       }
     });
 
