@@ -747,10 +747,10 @@ function onYouTubeIframeAPIReady() {
         .removeClass("icon-burger")
         .addClass("icon-cross");
 
-      // Trigger masonry
-      if (magicGrid) {
-        magicGrid.positionItems();
-      }
+      // // Trigger masonry (masonry)
+      // if (magicGrid) {
+      //   magicGrid.positionItems();
+      // }
     }
     function closeCatalogMenu() {
       // Scroll top inner content
@@ -769,26 +769,38 @@ function onYouTubeIframeAPIReady() {
         .removeClass("icon-cross")
         .addClass("icon-burger");
 
-      // Switch back inner content
-      if (lettersBackup) {
-        $(".filter-catalog-menu").removeClass("active");
-        $(".main-header__catalog-menu-body .masonry-container").html(
-          lettersBackup,
-        );
-      }
+      // // Switch back inner content (masonry)
+      // if (lettersBackup) {
+      //   $(".filter-catalog-menu").removeClass("active");
+      //   $(".main-header__catalog-menu-body .masonry-container").html(
+      //     lettersBackup,
+      //   );
+      // }
+
+      // // Switch back inner content (flex)
+      // $(".catalog-menu-section").each(function () {
+      //   $(this).parent().removeClass("d-none");
+      // });
+
+      // Switch back inner content (col)
+      $(".main-header__catalog-menu-body .row-original").removeClass("d-none");
+      $(".main-header__catalog-menu-body .row-filtered").remove();
+      // Remove filter btn active state
+      $(".filter-catalog-menu").removeClass("active");
     }
 
     // Backdrop click close
     $(".main-header__catalog-menu").on("click", function (e) {
       if (e.target !== e.currentTarget) return;
-
       closeCatalogMenu();
     });
 
+    // // Masonry letter backup (masonry)
+    // let lettersBackup = $(
+    //   ".main-header__catalog-menu-body .masonry-container",
+    // ).html();
+
     // Filter catalog menu by letters
-    let lettersBackup = $(
-      ".main-header__catalog-menu-body .masonry-container",
-    ).html();
     $(".filter-catalog-menu").on("click", function () {
       const dataValue = $(this).data("menu-value");
       if (!dataValue) {
@@ -796,31 +808,31 @@ function onYouTubeIframeAPIReady() {
         return;
       }
       if (!$(this).hasClass("active")) {
+        // Add btn active state
         $(".filter-catalog-menu").removeClass("active");
         $(this).addClass("active");
 
-        // Return all sections
-        if (lettersBackup) {
-          $(".main-header__catalog-menu-body .masonry-container").html(
-            lettersBackup,
-          );
-        }
-        // Hide selected sections
-        $(".catalog-menu-section").each(function () {
-          const dataSectionValue = $(this).data("menu-value");
-          if (dataSectionValue !== dataValue) {
-            $(this).parent().remove();
-          }
-        });
+        // // Return all sections (masonry)
+        // if (lettersBackup) {
+        //   $(".main-header__catalog-menu-body .masonry-container").html(
+        //     lettersBackup,
+        //   );
+        // }
+        // // Hide selected sections
+        // $(".catalog-menu-section").each(function () {
+        //   const dataSectionValue = $(this).data("menu-value");
+        //   if (dataSectionValue !== dataValue) {
+        //     $(this).parent().remove();
+        //   }
+        // });
+        // // Create empty container item for proper magic grid update
+        // if ($(".masonry-container__item").length === 0) {
+        //   $(".masonry-container").append(
+        //     '<div class="masonry-container__item">&nbsp;</div>',
+        //   );
+        // }
 
-        // Create empty container item for proper magic grid update
-        if ($(".masonry-container__item").length === 0) {
-          $(".masonry-container").append(
-            '<div class="masonry-container__item">&nbsp;</div>',
-          );
-        }
-
-        // // Return all sections
+        // // Return all sections (flex)
         // $(".catalog-menu-section").each(function () {
         //   $(this).parent().removeClass("d-none");
         // });
@@ -831,33 +843,64 @@ function onYouTubeIframeAPIReady() {
         //     $(this).parent().addClass("d-none");
         //   }
         // });
+
+        // Return all sections (col)
+        // Hide original menu items
+        $(".main-header__catalog-menu-body .row-original").addClass("d-none");
+        $(".main-header__catalog-menu-body .row-filtered").remove();
+        // Create filtered menu container
+        $(".main-header__catalog-menu-body").prepend(
+          '<div class="row row-filtered"></div>',
+        );
+        // Append filtered items to the container
+        $(
+          ".main-header__catalog-menu-body .row-original .catalog-menu-section",
+        ).each(function () {
+          const dataSectionValue = $(this).data("menu-value");
+          if (dataSectionValue === dataValue) {
+            let clone = $(this).clone(true);
+            $(".main-header__catalog-menu-body .row-filtered").append(clone);
+            clone.wrap('<div class="col-md-4 col-lg-3"></div>');
+          }
+        });
       } else {
-        // // Remove filters if clicked on active
+        // Remove filters if clicked on active
+
+        // Remove btn active state
         $(".filter-catalog-menu").removeClass("active");
-        // Return all sections
-        if (lettersBackup) {
-          $(".main-header__catalog-menu-body .masonry-container").html(
-            lettersBackup,
-          );
-        }
+
+        // // Return all sections (masonry)
+        // if (lettersBackup) {
+        //   $(".main-header__catalog-menu-body .masonry-container").html(
+        //     lettersBackup,
+        //   );
+        // }
+
+        // // Return all sections (flex)
         // $(".catalog-menu-section").each(function () {
         //   $(this).parent().removeClass("d-none");
         // });
+
+        // Return all sections (col)
+        $(".main-header__catalog-menu-body .row-original").removeClass(
+          "d-none",
+        );
+        $(".main-header__catalog-menu-body .row-filtered").remove();
       }
 
-      // Update masonary grid
-      if (magicGrid) {
-        $(".masonry-container__item").css("opacity", 0);
-        setTimeout(() => {
-          magicGrid.positionItems();
-          $(".masonry-container__item").animate(
-            {
-              opacity: 1,
-            },
-            200,
-          );
-        }, 0);
-      }
+      // // Update masonary grid (masonry)
+      // if (magicGrid) {
+      //   $(".masonry-container__item").css("opacity", 0);
+      //   setTimeout(() => {
+      //     magicGrid.positionItems();
+      //     $(".masonry-container__item").animate(
+      //       {
+      //         opacity: 1,
+      //       },
+      //       200,
+      //     );
+      //   }, 0);
+      // }
     });
 
     $(window).on("scroll", function () {
