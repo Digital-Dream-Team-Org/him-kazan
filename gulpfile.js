@@ -7,7 +7,7 @@ const concat = require("gulp-concat");
 // Uglify - JS minimization
 const uglify = require("gulp-uglify");
 // Sass - css preprocessor
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 // Autoprefixer - adding css vendor prefixes during preprocessing
 const autoprefixer = require("gulp-autoprefixer");
 // cleanCss - CSS minimization

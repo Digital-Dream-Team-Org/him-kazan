@@ -41,6 +41,102 @@ function onYouTubeIframeAPIReady() {
       }
     }
 
+    // Product page info mobile table
+    let isPriceTableMobile = false;
+    if ($(window).outerWidth(true) < 768) {
+      enablePriceTableMobile();
+    } else {
+      disablePriceTableMobile();
+    }
+    $(window).on("resize", function () {
+      if ($(window).outerWidth(true) < 768) {
+        enablePriceTableMobile();
+      } else {
+        disablePriceTableMobile();
+      }
+    });
+    function enablePriceTableMobile() {
+      if (isPriceTableMobile) {
+        return;
+      }
+      isPriceTableMobile = true;
+
+      $(".table-price-mobile tbody>tr>td").each(function (index) {
+        if ($(this).text().length >= 25) {
+          $(this).addClass("long");
+        }
+      });
+      $(".table-price-mobile tbody>tr").each(function (index) {
+        const self = $(this);
+        self.children("td").each(function (tdIndex) {
+          $(this).data("sort", tdIndex);
+        });
+        var items = self.children("td").sort(function (a, b) {
+          if ($(b).hasClass("long") && !$(a).hasClass("long")) {
+            return -1;
+          } else if (!$(b).hasClass("long") && $(a).hasClass("long")) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        let short = items.filter(function (item) {
+          if (!$(this).hasClass("long")) {
+            return $(this);
+          }
+        });
+        // Odd number
+        if (Math.abs(short.length % 2) == 1) {
+          short.last().addClass("long");
+        }
+        self.append(items);
+      });
+      $(".table-price-mobile").each(function (index) {
+        let titles = $(this).find("thead>tr>th");
+        $(this)
+          .find("tbody>tr")
+          .each(function (index) {
+            if (titles[index]) {
+              $(this)
+                .find("td")
+                .prepend(
+                  `<div class="table-price-mobile__header">${titles[index].innerText}</div>`,
+                );
+            }
+          });
+      });
+    }
+    function disablePriceTableMobile() {
+      if (!isPriceTableMobile) {
+        return;
+      }
+      isPriceTableMobile = false;
+
+      $(".table-price-mobile>tbody>tr>td").each(function (index) {
+        $(this).removeClass("long");
+      });
+      $(".table-price-mobile>tbody>tr").each(function (index) {
+        const self = $(this);
+        var items = self.children("td").sort(function (a, b) {
+          if (Number($(b).data("sort")) > Number($(a).data("sort"))) {
+            return -1;
+          } else if (Number($(b).data("sort")) < Number($(a).data("sort"))) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        self.append(items);
+      });
+      $(".table-price-mobile").each(function (index) {
+        let titles = $(this).find("thead>tr>th");
+        $(this)
+          .find("tbody>tr")
+          .each(function (index) {
+            $(this).find(".table-price-mobile__header").remove();
+          });
+      });
+    }
     // Simple phone input mask
     $(".phone-input-mask").on("keypress paste", function (evt) {
       // ^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$
@@ -63,7 +159,9 @@ function onYouTubeIframeAPIReady() {
     });
 
     // Floating manager label
-    $(".floating-manager-wrap").addClass("active");
+    if ($(window).outerWidth(true) > 768) {
+      $(".floating-manager-wrap").addClass("active");
+    }
 
     $(".floating-manager__label-wrap").on("click", function () {
       const parent = $(this).closest(".floating-manager-wrap");
@@ -76,6 +174,7 @@ function onYouTubeIframeAPIReady() {
 
     // Product page gallery
     $(".product-page-gallery").each(function () {
+      console.log(1);
       const thumbs = $(this).find(".gallery-thumbs")[0];
       const gallery = $(this).find(".gallery-top")[0];
 
@@ -442,41 +541,6 @@ function onYouTubeIframeAPIReady() {
         // value="https://www.youtube.com/embed/Xiwuni9qmvY?playlist=Xiwuni9qmvY&autoplay=1&playsinline=1&loop=1&controls=0&rel=0&modestbranding=1&fs=0&frameborder=0&enablejsapi=1&origin=https%3A%2F%2Fhim-kazan.ru&widgetid=1"
         const playerId = $(this).find(".player-tabs__item-iframe").attr("id");
 
-        // const m_date = moment().utcOffset(offset);
-
-        // const m_morning = moment().utcOffset(offset).set({
-        //   hour: 6,
-        //   minute: 0,
-        //   second: 0,
-        // });
-        // const m_day = moment().utcOffset(offset).set({
-        //   hour: 12,
-        //   minute: 0,
-        //   second: 0,
-        // });
-        // const m_evening = moment().utcOffset(offset).set({
-        //   hour: 18,
-        //   minute: 0,
-        //   second: 0,
-        // });
-
-        // let ytId = null;
-        // if (m_date.isBetween(m_morning, m_day, undefined, "[]")) {
-        //   // Morning
-        //   const src = $(this).find('input[name="iframe_source_morning"]').val();
-        //   ytId = src.split("/embed/")[1];
-        //   // $(this).find(".player-tabs__item-iframe").attr("src", src);
-        // } else if (m_date.isBetween(m_day, m_evening, undefined, "[]")) {
-        //   // Day
-        //   const src = $(this).find('input[name="iframe_source_day"]').val();
-        //   ytId = src.split("/embed/")[1];
-        //   // $(this).find(".player-tabs__item-iframe").attr("src", src);
-        // } else {
-        //   // night / Fallback
-        //   const src = $(this).find('input[name="iframe_source_night"]').val();
-        //   ytId = src.split("/embed/")[1];
-        //   // $(this).find(".player-tabs__item-iframe").attr("src", src);
-        // }
         const m_date = moment().utcOffset(offset);
 
         let ytId = null;
@@ -533,6 +597,32 @@ function onYouTubeIframeAPIReady() {
           m_day_end.add(1, "days");
         }
 
+        // Evening
+        const e_src = $(this).find('input[name="iframe_source_evening"]');
+        let e_srcVal = e_src.val();
+
+        let e_dataStart = e_src.data("start");
+        let e_dataEnd = e_src.data("end");
+        let e_start_time = moment(e_dataStart, "HH:mm:ss");
+        let e_end_time = moment(e_dataEnd, "HH:mm:ss");
+        const m_evening_start = moment()
+          .utcOffset(offset)
+          .set({
+            hour: e_start_time.get("hour"),
+            minute: e_start_time.get("minute"),
+            second: e_start_time.get("second"),
+          });
+        const m_evening_end = moment()
+          .utcOffset(offset)
+          .set({
+            hour: e_end_time.get("hour"),
+            minute: e_end_time.get("minute"),
+            second: e_end_time.get("second"),
+          });
+        if (e_end_time.isSameOrBefore(e_start_time, "hour")) {
+          m_evening_end.add(1, "days");
+        }
+
         // night / Fallback
         const n_src = $(this).find('input[name="iframe_source_night"]');
         let n_srcVal = n_src.val();
@@ -542,14 +632,14 @@ function onYouTubeIframeAPIReady() {
         let n_start_time = moment(n_dataStart, "HH:mm:ss");
         let n_end_time = moment(n_dataEnd, "HH:mm:ss");
 
-        const m_evening_start = moment()
+        const m_night_start = moment()
           .utcOffset(offset)
           .set({
             hour: n_start_time.get("hour"),
             minute: n_start_time.get("minute"),
             second: n_start_time.get("second"),
           });
-        const m_evening_end = moment()
+        const m_night_end = moment()
           .utcOffset(offset)
           .set({
             hour: n_end_time.get("hour"),
@@ -558,7 +648,7 @@ function onYouTubeIframeAPIReady() {
           });
 
         if (n_end_time.isSameOrBefore(n_start_time, "hour")) {
-          m_evening_end.add(1, "days");
+          m_night_end.add(1, "days");
         }
 
         if (m_date.isBetween(m_morning_start, m_morning_end, undefined, "[)")) {
@@ -567,6 +657,10 @@ function onYouTubeIframeAPIReady() {
           ytId = d_srcVal.split("/embed/")[1];
         } else if (
           m_date.isBetween(m_evening_start, m_evening_end, undefined, "[)")
+        ) {
+          ytId = e_srcVal.split("/embed/")[1];
+        } else if (
+          m_date.isBetween(m_night_start, m_night_end, undefined, "[)")
         ) {
           ytId = n_srcVal.split("/embed/")[1];
         } else {
