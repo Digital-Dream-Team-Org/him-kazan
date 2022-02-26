@@ -93,16 +93,19 @@ function onYouTubeIframeAPIReady() {
       });
       $(".table-price-mobile").each(function (index) {
         let titles = $(this).find("thead>tr>th");
+        console.log("file: main.js - line 96 - titles", titles);
         $(this)
           .find("tbody>tr")
-          .each(function (index) {
-            if (titles[index]) {
-              $(this)
-                .find("td")
-                .prepend(
-                  `<div class="table-price-mobile__header">${titles[index].innerText}</div>`,
-                );
-            }
+          .each(function () {
+            $(this)
+              .find("td")
+              .each(function (index) {
+                if (titles[index]) {
+                  $(this).prepend(
+                    `<div class="table-price-mobile__header">${titles[index].innerText}</div>`,
+                  );
+                }
+              });
           });
       });
     }

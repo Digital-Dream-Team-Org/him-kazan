@@ -8,8 +8,15 @@
         padding-right: 20px;
       }
     }
+
+    &__catalog-menu-section {
+      &-title {
+        font-size: 11px;
+      }
+    }
   }
 }
+
 @media (max-width: 1400px) {
   .main-header {
     // Content START
@@ -459,6 +466,9 @@
       order: 99;
       width: 100%;
       text-align: center;
+    }
+    &__socials-wrap {
+      margin-left: auto;
     }
 
     &__catalog-menu {
