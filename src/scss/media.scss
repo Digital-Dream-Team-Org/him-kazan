@@ -440,6 +440,7 @@
   }
 
   .icon-element {
+    margin-bottom: 20px;
     &--card {
       height: auto;
     }
@@ -1010,6 +1011,43 @@
         line-height: 20px;
         color: #1b1b1b;
       }
+    }
+  }
+
+  .edo-list {
+    padding-left: 60px;
+  
+    &__item {
+      min-height: 64px;
+      margin-bottom: 32px;
+      padding-top: 6px;
+  
+      &::before {
+        font-size: 18px;
+        font-weight: 600;
+        --size: 48px;
+        left: calc(-1 * var(--size) - 10px);
+        line-height: var(--size);
+        width: var(--size);
+        height: var(--size);
+      }
+  
+      // &-title {
+      //   font-size: 18px;
+      //   line-height: 22px;
+      //   margin-bottom: 16px;
+      // }
+      // &-text {
+      //   font-size: 14px;
+      //   line-height: 28px;
+      //   p {
+      //     margin-bottom: 4px;
+      //   }
+      //   a {
+      //     font-size: 14px;
+      //     line-height: 28px;
+      //   }
+      // }
     }
   }
 }
